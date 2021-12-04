@@ -199,7 +199,7 @@ create table HoaDon
 	TienThanhToan int,
 	MaQR varchar(30),
 	MoTaHoaDon nvarchar(80),
-	DiaChiSieuThi nvarchar(80),
+	SieuThi varchar(15),
 )
 
 create table  ChiTietHoaDon
@@ -227,7 +227,7 @@ create table NhanVien
 	TenNhanVien nvarchar(30),
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
-	DiaChiNhanVien nvarchar(80),
+	DiaChiNhanVien nvarchar(80)
 	NhanSuQuanLy varchar(15),
 	Luong int,
 	CHECK (GioiTinh IN('Nam', N'Nữ')),
@@ -569,5 +569,10 @@ references Kho(MaKho)
 
 alter table PhieuXuatHang
 add constraint FK_PXH_ST
+foreign key (SieuThi)
+references SieuThi(MaSieuThi)
+
+alter table HoaDon
+add constraint FK_HD_ST
 foreign key (SieuThi)
 references SieuThi(MaSieuThi)
