@@ -109,7 +109,8 @@ create table ThongBao
 create table LoaiSanPham
 (
 	MaLoai varchar(15) primary key,
-	TenLoai nvarchar(30)
+	TenLoai nvarchar(30),
+	Mota nvarchar(80)
 )
 
 create table ThuongHieu
@@ -163,7 +164,6 @@ create table DonHang
 	HinhThucThanhToan nvarchar(30),
 	DiemTichLuy int,
 	DiaChiGiaoHang varchar(15) not null,
-	MaKhachHang varchar(15) not null,
 	SieuThi varchar(15),
 	CHECK (DonViVanChuyen IN('AhaMove', 'GrabExpress','Viettel')),
 	CHECK (VAT >=0 ),
@@ -228,7 +228,6 @@ create table NhanVien
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
 	DiaChiNhanVien nvarchar(80),
-	SieuThi varchar(15),
 	NhanSuQuanLy varchar(15),
 	Luong int,
 	CHECK (GioiTinh IN('Nam', N'Nữ')),
@@ -291,6 +290,7 @@ create table ChiTietKho
 create table NhaCungCap
 (
 	MaNhaCungCap varchar(15) primary key,
+	TenNhaCungCap nvarchar(30),
 	DiaChi nvarchar(80),
 	SoDienThoai varchar(20)
 )
@@ -309,8 +309,7 @@ create table PhieuNhapHang
 	Kho varchar(15),
 	NgayNhapHang date,
 	NhaCungCap varchar(15),
-	TongGia int,
-	NVNhap varchar(15)
+	TongGia int
 )
 
 create table PhieuXuatHang
@@ -318,8 +317,7 @@ create table PhieuXuatHang
 	MaPhieuXuatHang varchar(15) primary key,
 	NgayXuatHang date,
 	SieuThi varchar(15),
-	Kho varchar(15),
-	NVXuat varchar(15)
+	Kho varchar(15)
 )
 
 create table ChiTietXuatHang
@@ -439,11 +437,6 @@ add constraint FK_DH_DCGH
 foreign key (DiaChiGiaoHang)
 references DiaChiGiaoHang(MaDiaChi)
 
-alter table DonHang
-add constraint FK_DH_KH
-foreign key (MaKhachHang)
-references KhachHang(MaKhachHang)
-
 alter table KhuyenMai
 add constraint FK_KM_SP
 foreign key (SanPham)
@@ -483,10 +476,6 @@ alter table ChiTietSieuThi
 add constraint FK_CTST_SP
 foreign key (MaSanPham)
 references SanPham(MaSanPham)
-alter table NhanVien
-add constraint FK_NV_ST
-foreign key (SieuThi)
-references SieuThi(MaSieuThi)
 
 alter table NhanVien
 add constraint FK_NV_NS
@@ -558,18 +547,27 @@ add constraint FK_K_NVQLK
 foreign key (NguoiQuanLy)
 references NhanVienQuanLyKho(MaNVQLK)
 
-
-alter table PhieuNhapHang
-add constraint FK_PNH_NVQLK
-foreign key (NVNhap)
-references NhanVienQuanLyKho(MaNVQLK)
-
-alter table PhieuXuatHang
-add constraint FK_PXH_NVQLK
-foreign key (NVXuat)
-references NhanVienQuanLyKho(MaNVQLK)
-
 alter table DonHang
 add constraint FK_DH_ST
+foreign key (SieuThi)
+references SieuThi(MaSieuThi)
+
+alter table PhieuNhapHang
+add constraint FK_PNH_K
+foreign key (Kho)
+references Kho(MaKho)
+
+alter table PhieuNhapHang
+add constraint FK_PNH_NCC
+foreign key (NhaCungCap)
+references NhaCungCap(MaNhaCungCap)
+
+alter table PhieuXuatHang
+add constraint FK_PXH_K
+foreign key (Kho)
+references Kho(MaKho)
+
+alter table PhieuXuatHang
+add constraint FK_PXH_ST
 foreign key (SieuThi)
 references SieuThi(MaSieuThi)
