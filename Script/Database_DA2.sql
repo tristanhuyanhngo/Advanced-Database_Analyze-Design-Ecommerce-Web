@@ -5,7 +5,7 @@ go
 
 create table KhachHang
 (
-	MaKhachHang varchar(15) primary key,
+	MaKhachHang int primary key identity,
 	HoTenKhachHang nvarchar(50),
 	GioiTinhKhachHang nvarchar(10),
 	NgaySinhKhachHang date,
@@ -19,79 +19,79 @@ create table KhachHang
 
 create table Be
 (
-	MaBe varchar(15) primary key,
+	MaBe int primary key identity,
 	TenBe nvarchar(30),
 	NgaySinh date,
 	GioiTinh nvarchar(20),
-	KhachHang varchar(15) not null,
+	KhachHang int not null,
 	CHECK (GioiTinh IN('Nam', N'Nữ'))
 )	
 
 create table DiaChiGiaoHang
 (
-	MaDiaChi varchar(15) primary key,
+	MaDiaChi int  primary key identity,
 	SoNha varchar(10),
 	TenDuong nvarchar(20),
 	Tinh_ThanhPho nvarchar(20),
 	Quan_Huyen nvarchar(20),
 	Phuong_Xa nvarchar(20),
 	SoDienThoai varchar(20),
-	KhachHang varchar(15) not null
+	KhachHang int not null
 )
 
 create table SanPhamYeuThich
 (
-	MaKhachHang varchar(15),
-	MaSanPham varchar(15),
+	MaKhachHang int,
+	MaSanPham int,
 	primary key(MaKhachHang, MaSanPham)
 )
 
 create table SanPhamDaXem
 (
-	MaKhachHang varchar(15),
-	MaSanPham varchar(15),
+	MaKhachHang int,
+	MaSanPham int,
 	primary key(MaKhachHang, MaSanPham)
 )
 
 create table SanPham
 (
-	MaSanPham varchar(15) PRIMARY KEY,
+	MaSanPham int PRIMARY KEY identity,
 	TenSanPham nvarchar(30),
 	DonGia int, 
 	MoTaSanPham nvarchar(80),
-	LoaiSanPham varchar(15) not null,
-	ThuongHieu varchar(15),
+	LoaiSanPham int not null,
+	ThuongHieu int,
 	CHECK(DonGia>0)
 )
 
 create table SanPhamMuaCung
 (
-	MaSanPham varchar(15),
-	SanPhamMuaCung varchar(15),
+	MaSanPham int,
+	SanPhamMuaCung int,
 	primary key(MaSanPham, SanPhamMuaCung)
 )
 
 create table NhanXet
 (
-	MaNhanXet varchar(15) primary key,
+	MaNhanXet int PRIMARY KEY identity,
 	ThoiGianNhanXet datetime,
 	NoiDung nvarchar(80),
-	NguoiNhanXet varchar(15) not null,
-	SanPham varchar(15) not null
+	NguoiNhanXet int not null,
+	SanPham int not null
 )
 
 create table PhieuGiamGia
 (
-	MaPhieu varchar(15) primary key,
+	MaPhieu int primary key identity,
 	ThoiGianHieuLuc date,
 	ThoiGianHetHan date,
 	PhanTramGiamGia int,
 	SoTienGiam int CHECK(SoTienGiam>=0),
 	NoiDung nvarchar(80),
 	TenPhieu nvarchar(30),
-	KhachHang varchar(15) not null,
+	KhachHang int not null,
 	TinhTrang nvarchar(20),
-	DonHang varchar(15),
+	DonHang int,
 	CHECK(PhanTramGiamGia >= 0 and PhanTramGiamGia <= 100),
 	CHECK (TinhTrang in (N'Chưa xài', N'Đã xài')),
 	CHECK(ThoiGianHieuLuc < ThoiGianHetHan)
@@ -99,29 +99,30 @@ create table PhieuGiamGia
 
 create table ThongBao
 (
-	MaThongBao varchar(15) primary key,
+	MaThongBao int primary key identity,
 	TenThongBao nvarchar(30),
 	NoiDung nvarchar(80),
 	ThoiGianThongBao date,
-	KhachHang varchar(15)
+	KhachHang int 
 )
 
 create table LoaiSanPham
 (
-	MaLoai varchar(15) primary key,
-	TenLoai nvarchar(30)
+	MaLoai int primary key identity,
+	TenLoai nvarchar(30),
+	Mota nvarchar(80)
 )
 
 create table ThuongHieu
 (
-	MaThuongHieu varchar(15) primary key,
+	MaThuongHieu int primary key identity,
 	TenThuongHieu nvarchar(30),
 	MoTaThuongHieu nvarchar(80)
 )
 
 create table TheVip
 (
-	MaTaiKhoan varchar(15) primary key,
+	MaTaiKhoan int primary key identity,
 	LoaiThe nvarchar(30),
 	ThoiHan date,
 	Check (LoaiThe in ('Diamond','Gold'))
@@ -129,7 +130,7 @@ create table TheVip
 
 create table SieuThi
 (
-	MaSieuThi varchar(15) primary key,
+	MaSieuThi int primary key identity,
 	TenSieuThi nvarchar(30),
 	TruongSieuThi nvarchar(30),
 	SoDienThoaiLienLac varchar(20),
@@ -139,20 +140,20 @@ create table SieuThi
 	Tinh_ThanhPho nvarchar(20),
 	Quan_Huyen nvarchar(20),
 	Phuong_Xa nvarchar(20),
-	QuanLy varchar(15) not null
+	QuanLy int not null
 )
 
 create table ChiTietSieuThi
 (
-	MaSieuThi varchar(15),
-	MaSanPham varchar(15),
+	MaSieuThi int,
+	MaSanPham int,
 	SoLuong int,
 	primary key(MaSieuThi,MaSanPham)
 )
 
 create table DonHang
 (
-	MaDonHang varchar(15) primary key,
+	MaDonHang int primary key identity,
 	SoDienThoaiKhachHang varchar(10),
 	VAT int, 
 	TongSanPham int, 
@@ -162,9 +163,8 @@ create table DonHang
 	DonViVanChuyen nvarchar(30),
 	HinhThucThanhToan nvarchar(30),
 	DiemTichLuy int,
-	DiaChiGiaoHang varchar(15) not null,
-	MaKhachHang varchar(15) not null,
-	SieuThi varchar(15),
+	DiaChiGiaoHang int not null,
+	SieuThi int,
 	CHECK (DonViVanChuyen IN('AhaMove', 'GrabExpress','Viettel')),
 	CHECK (VAT >=0 ),
 	CHECK (HinhThucThanhToan IN('COD', 'ATM','VISA','VNPAY','ZALOPAY', 'MOMO')),
@@ -173,8 +173,8 @@ create table DonHang
 
 create table  ChiTietDonHang
 (
-	MaDonHang varchar(15),
-	MaSanPham varchar(15),
+	MaDonHang int,
+	MaSanPham int,
 	SoLuong int,
 	DonGia int,
 	primary key(MaDonHang, MaSanPham)
@@ -182,7 +182,7 @@ create table  ChiTietDonHang
 
 create table  TinhTrangDonHang
 (
-	MaDonHang varchar(15),
+	MaDonHang int,
 	TinhTrang nvarchar(20),
 	ThoiGianCapNhap datetime,
 	CHECK (TinhTrang IN(N'Chờ giao', N'Đã mua', N'Đã huỷ')),
@@ -191,7 +191,7 @@ create table  TinhTrangDonHang
 
 create table HoaDon
 (
-	MaHoaDon varchar(15) primary key,
+	MaHoaDon int primary key identity,
 	ThoiGianLap datetime,
 	TenThuNgan nvarchar(30),
 	TenKhachHang nvarchar(30),
@@ -199,13 +199,13 @@ create table HoaDon
 	TienThanhToan int,
 	MaQR varchar(30),
 	MoTaHoaDon nvarchar(80),
-	DiaChiSieuThi nvarchar(80),
+	SieuThi int,
 )
 
 create table  ChiTietHoaDon
 (
-	MaHoaDon varchar(15),
-	MaSanPham varchar(15),
+	MaHoaDon int ,
+	MaSanPham int ,
 	SoLuong int,
 	DonGia int,
 	primary key(MaHoaDon, MaSanPham)
@@ -213,23 +213,22 @@ create table  ChiTietHoaDon
 
 create table KhuyenMai
 (
-	MaKhuyenMai varchar(15) primary key,
+	MaKhuyenMai int primary key identity,
 	NoiDung nvarchar(80),
 	NgayBatDau date,
 	NgayKetThuc date,
-	SanPham varchar(15),
+	SanPham int ,
 	Check(NgayKetThuc >= NgayBatDau)
 )
 
 create table NhanVien
 (
-	MaNhanVien varchar(15) primary key,
+	MaNhanVien int primary key identity,
 	TenNhanVien nvarchar(30),
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
 	DiaChiNhanVien nvarchar(80),
-	SieuThi varchar(15),
-	NhanSuQuanLy varchar(15),
+	NhanSuQuanLy int ,
 	Luong int,
 	CHECK (GioiTinh IN('Nam', N'Nữ')),
 	CHECK (LUONG>0)
@@ -237,14 +236,14 @@ create table NhanVien
 
 create table NgayDiemDanh
 (
-	MaNhanVien varchar(15),
+	MaNhanVien int ,
 	NgayDiemDanh Date,
 	Primary key(MaNhanVien, NgayDiemDanh)
 )
 
 create table QuanLy
 (
-	MaQuanLy varchar(15) primary key,
+	MaQuanLy int primary key identity,
 	TenQuanLy nvarchar(30),
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
@@ -254,18 +253,18 @@ create table QuanLy
 
 create table NhanSu
 (
-	MaNhanSu varchar(15) primary key,
+	MaNhanSu int primary key identity,
 	TenNhanSu nvarchar(30),
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
 	DiaChiNhanSu nvarchar(80),
-	SieuThi varchar(15),
+	SieuThi int ,
 	CHECK (GioiTinh IN('Nam', N'Nữ'))
 )
 
 create table NhanVienQuanLyKho
 (
-	MaNVQLK varchar(15) primary key,
+	MaNVQLK int primary key identity,
 	Ten nvarchar(30),
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
@@ -275,65 +274,64 @@ create table NhanVienQuanLyKho
 
 create table Kho
 (
-	MaKho varchar(15) primary key,
+	MaKho int primary key identity,
 	DiaChiKho nvarchar(80),
-	NguoiQuanLy varchar(15)
+	NguoiQuanLy int 
 )
 
 create table ChiTietKho
 (
-	MaKho varchar(15),
-	MaSanPham varchar(15),
+	MaKho int,
+	MaSanPham int,
 	SoLuong int,
 	primary key(MaKho,MaSanPham)
 )
 
 create table NhaCungCap
 (
-	MaNhaCungCap varchar(15) primary key,
+	MaNhaCungCap int primary key identity,
+	TenNhaCungCap nvarchar(30),
 	DiaChi nvarchar(80),
 	SoDienThoai varchar(20)
 )
 
 create table ChiTietCungCap
 (
-	MaNhaCungCap varchar(15),
-	MaSanPham  varchar(15),
+	MaNhaCungCap int ,
+	MaSanPham  int ,
 	SoLuong int,
 	primary key(MaNhaCungCap,MaSanPham)
 )
 
 create table PhieuNhapHang
 (
-	MaPhieuNhapHang varchar(15) primary key,
-	Kho varchar(15),
+	MaPhieuNhapHang int primary key identity,
+	Kho int ,
 	NgayNhapHang date,
-	NhaCungCap varchar(15),
-	TongGia int,
-	NVNhap varchar(15)
+	NhaCungCap int ,
+	TongGia int
 )
 
 create table PhieuXuatHang
 (
-	MaPhieuXuatHang varchar(15) primary key,
+	MaPhieuXuatHang int primary key identity,
 	NgayXuatHang date,
-	SieuThi varchar(15),
-	Kho varchar(15),
-	NVXuat varchar(15)
+	SieuThi int ,
+	Kho int 
 )
 
 create table ChiTietXuatHang
 (
-	MaPhieuXuatHang varchar(15),
-	MaSanPham varchar(15),
+	MaPhieuXuatHang int ,
+	MaSanPham int ,
 	SoLuong int,
 	primary key(MaPhieuXuatHang,MaSanPham)
 )
 
 create table ChiTietNhapHang
 (
-	MaPhieuNhapHang varchar(15),
-	MaSanPham varchar(15),
+	MaPhieuNhapHang int ,
+	MaSanPham int ,
 	SoLuong int,
 	DonGia int,
 	primary key(MaPhieuNhapHang,MaSanPham)
@@ -341,8 +339,8 @@ create table ChiTietNhapHang
 
 create table ChiTietGioHang
 (
-	MaKhachHang varchar(15),
-	MaSanPham varchar(15),
+	MaKhachHang int ,
+	MaSanPham int ,
 	SoLuong int,
 	DonGia int,
 	primary key(MaKhachHang,MaSanPham)
@@ -439,11 +437,6 @@ add constraint FK_DH_DCGH
 foreign key (DiaChiGiaoHang)
 references DiaChiGiaoHang(MaDiaChi)
 
-alter table DonHang
-add constraint FK_DH_KH
-foreign key (MaKhachHang)
-references KhachHang(MaKhachHang)
-
 alter table KhuyenMai
 add constraint FK_KM_SP
 foreign key (SanPham)
@@ -483,10 +476,6 @@ alter table ChiTietSieuThi
 add constraint FK_CTST_SP
 foreign key (MaSanPham)
 references SanPham(MaSanPham)
-alter table NhanVien
-add constraint FK_NV_ST
-foreign key (SieuThi)
-references SieuThi(MaSieuThi)
 
 alter table NhanVien
 add constraint FK_NV_NS
@@ -558,18 +547,32 @@ add constraint FK_K_NVQLK
 foreign key (NguoiQuanLy)
 references NhanVienQuanLyKho(MaNVQLK)
 
-
-alter table PhieuNhapHang
-add constraint FK_PNH_NVQLK
-foreign key (NVNhap)
-references NhanVienQuanLyKho(MaNVQLK)
-
-alter table PhieuXuatHang
-add constraint FK_PXH_NVQLK
-foreign key (NVXuat)
-references NhanVienQuanLyKho(MaNVQLK)
-
 alter table DonHang
 add constraint FK_DH_ST
+foreign key (SieuThi)
+references SieuThi(MaSieuThi)
+
+alter table PhieuNhapHang
+add constraint FK_PNH_K
+foreign key (Kho)
+references Kho(MaKho)
+
+alter table PhieuNhapHang
+add constraint FK_PNH_NCC
+foreign key (NhaCungCap)
+references NhaCungCap(MaNhaCungCap)
+
+alter table PhieuXuatHang
+add constraint FK_PXH_K
+foreign key (Kho)
+references Kho(MaKho)
+
+alter table PhieuXuatHang
+add constraint FK_PXH_ST
+foreign key (SieuThi)
+references SieuThi(MaSieuThi)
+
+alter table HoaDon
+add constraint FK_HD_ST
 foreign key (SieuThi)
 references SieuThi(MaSieuThi)

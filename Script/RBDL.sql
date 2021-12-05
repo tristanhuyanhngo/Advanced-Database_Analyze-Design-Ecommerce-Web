@@ -64,21 +64,6 @@ BEGIN
 	commit
 END
 
-go 
-
-CREATE TRIGGER tg_nhansu_nhanvien
-ON dbo.nhanvien FOR INSERT,UPDATE
-as
-BEGIN
-    if(not exists (select* from nhanvien,inserted,nhansu where nhanvien.manhanvien = inserted.manhanvien
-				   and nhansu.manhansu = nhanvien.nhansuquanly and nhansu.sieuthi = nhanvien.sieuthi))
-	BEGIN
-		PRINT N'Nhân viên không cùng công ty với nhân sự quản lý, lỗi'
-		ROLLBACK TRAN
-		return
-	END
-END
-
 go
 
 CREATE TRIGGER tg_nhaphang
