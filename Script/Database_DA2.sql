@@ -14,6 +14,8 @@ create table KhachHang
 	Tinh_ThanhPho nvarchar(20),
 	Quan_Huyen nvarchar(20),
 	Phuong_Xa nvarchar(20),
+	SDT varchar(20) unique,
+	pass varchar(20),
 	CHECK (GioiTinhKhachHang IN(N'Nam', N'Nữ'))
 )
 
@@ -230,6 +232,8 @@ create table NhanVien
 	DiaChiNhanVien nvarchar(80),
 	NhanSuQuanLy int ,
 	Luong int,
+	username varchar(20) unique,
+	pass varchar(20),
 	CHECK (GioiTinh IN('Nam', N'Nữ')),
 	CHECK (LUONG>0)
 )
@@ -248,6 +252,8 @@ create table QuanLy
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
 	DiaChiQuanLy nvarchar(80),
+	username varchar(20) unique,
+	pass varchar(20),
 	CHECK (GioiTinh IN('Nam', N'Nữ'))
 )
 
@@ -259,6 +265,8 @@ create table NhanSu
 	SoCMND varchar(20) unique,
 	DiaChiNhanSu nvarchar(80),
 	SieuThi int ,
+	username varchar(20) unique,
+	pass varchar(20),
 	CHECK (GioiTinh IN('Nam', N'Nữ'))
 )
 
@@ -269,6 +277,8 @@ create table NhanVienQuanLyKho
 	GioiTinh nvarchar(20),
 	SoCMND varchar(20) unique,
 	DiaChi nvarchar(80),
+	username varchar(20) unique,
+	pass varchar(20),
 	CHECK (GioiTinh IN('Nam', N'Nữ'))
 )
 
