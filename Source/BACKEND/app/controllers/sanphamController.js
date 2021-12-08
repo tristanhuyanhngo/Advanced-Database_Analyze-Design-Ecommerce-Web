@@ -6,3 +6,9 @@ exports.getList = (req, res) => {
     res.send({ result: data, error: e });
   });
 };
+
+exports.update = (req, res) => {
+  modelSP.updateSP(req.params.ID,(e, data) => {
+    res.send({ result: data, error: e });
+  });
+};

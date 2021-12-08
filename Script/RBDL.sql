@@ -53,12 +53,7 @@ BEGIN
 		where chitietdonhang.madonhang = inserted.madonhang
 
 		UPDATE dbo.donhang 
-		set donhang.tongtien = @TongTien 
-		from donhang, inserted 
-		where inserted.madonhang = donhang.madonhang 
-
-		UPDATE dbo.donhang 
-		set donhang.TongSanPham = @TongSoLuong 
+		set donhang.tongtien = @TongTien, donhang.TongSanPham = @TongSoLuong, donhang.DiemTichLuy = @TongTien/1000
 		from donhang, inserted 
 		where inserted.madonhang = donhang.madonhang 
 	commit
@@ -115,3 +110,6 @@ BEGIN
 	where inserted.MaKhachHang = ChiTietGioHang.MaKhachHang 
 	and inserted.masanpham = ChiTietGioHang.masanpham
 END
+
+go 
+
