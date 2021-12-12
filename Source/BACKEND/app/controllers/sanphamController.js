@@ -12,3 +12,21 @@ exports.update = (req, res) => {
     res.send({ result: data, error: e });
   });
 };
+
+exports.getListKm = (req, res) => {
+  modelSP.getInforSPKM((e, data) => {
+    res.send({ result: data, error: e });
+  });
+};
+
+exports.getListByType = (req, res) => {
+  modelSP.getInforSPByType(req.params.type,(e, data) => {
+    res.send({ result: data, error: e });
+  });
+};
+
+exports.getListByTrademark = (req, res) => {
+  modelSP.getInforSPByTrademark(req.params.tradmark,(e, data) => {
+    res.send({ result: data, error: e });
+  });
+};

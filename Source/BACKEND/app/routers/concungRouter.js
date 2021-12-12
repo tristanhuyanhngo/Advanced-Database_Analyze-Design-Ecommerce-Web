@@ -1,13 +1,12 @@
 module.exports = (app) => {
     const khController = require("../controllers/khachhangController")
-    app.get("/customer", khController.getList)
-    app.get("/customer/:id", khController.getByID)
-    app.get("/customers", khController.checkAcc)
 
     const spController = require("../controllers/sanphamController.js")
     app.get("/product", spController.getList)
-    app.put("/product/:ID", spController.update)
+    app.get("/product/km", spController.getListKm)
+    app.get("/product/type/:type", spController.getListByType)
+    app.get("/product/trademark/:trademark", spController.getListByTrademark)
 
     const dhController = require("../controllers/donhangController")
-    app.post("/DH", dhController.xacnhan)
+    app.post("/order/confirm", dhController.xacnhan)
   };

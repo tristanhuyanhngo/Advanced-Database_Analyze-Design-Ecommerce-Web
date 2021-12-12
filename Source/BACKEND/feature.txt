@@ -1,0 +1,17 @@
+chỗ Khuyến mãi ở trang index sẽ show tất cả các sản phẩm đang có khuyến mãi ra (kh phân biệt)
+còn ở dưới phần khuyến mãi thì show các sản phẩm thuộc loại (sữa, bỉm, ....).
+
+Ở trang shop thì mới vào bọn m show sản phẩm nào ra cũng đc hết
+nmà nó có cái side bar bên trái là loại sp, bấm vô từng loại sẽ có thương hiệu của loại đó 
+thì m bấm vô loại nào nó show ra sản phẩm của loại đó, bấm vô thương hiệu của loại nào (ví dụ bobby của bỉm) 
+thì nó hiện ra tất cả bỉm thuộc thương hiệu bobby. 
+
+Còn bấm vô hình sản phẩm nào thì sẽ hiện ra product detail của sản phẩm đó kèm sản phẩm mua cùng ở bên dưới 
+(bỏ cái sản phẩm mua cùng cũng đc)
+
+bấm vô chọn mua sẽ có cái pop up sản phẩm đã được thêm vào giỏ hàng (cái này chưa làm sang tuần t làm), 
+sản phẩm sẽ tự động được thêm vô cart (thông tin trong trang cart á)
+
+Trong trang cart thì nó có cái chỉnh số lượng sản phẩm vs nút xóa sản phẩm, 
+ở dưới có chỗ điền mã khuyến mãi vs bảng tổng giá vs chỗ điền thông tin cá nhân.
+ Bấm vô đặt hàng thì sẽ hiện ra trang check out để m ktr lại thông tin lần cuối (trang này chưa làm)

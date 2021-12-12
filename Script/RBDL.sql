@@ -25,7 +25,7 @@ END
 go
 
 CREATE TRIGGER tg_ChiTietDonHang
-ON dbo.ChiTietDonHang FOR INSERT,UPDATE, delete
+ON dbo.ChiTietDonHang FOR INSERT
 as
 BEGIN
     declare @Dongia INT
@@ -62,7 +62,7 @@ END
 go
 
 CREATE TRIGGER tg_nhaphang
-ON dbo.chitietnhaphang FOR INSERT,UPDATE,delete
+ON dbo.chitietnhaphang FOR INSERT
 as
 BEGIN
     declare @Dongia INT
@@ -94,7 +94,7 @@ END
 go
 
 CREATE TRIGGER tg_giohang
-ON dbo.ChiTietGioHang FOR INSERT,UPDATE,delete
+ON dbo.ChiTietGioHang FOR INSERT
 as
 BEGIN
     declare @Dongia INT
