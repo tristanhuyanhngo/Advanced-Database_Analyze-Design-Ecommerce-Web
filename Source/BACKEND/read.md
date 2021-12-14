@@ -1,1 +1,0 @@
-npm i mssql msnodesqlv8 express body-parser webpack
