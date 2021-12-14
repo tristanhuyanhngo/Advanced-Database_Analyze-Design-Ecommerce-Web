@@ -1,4 +1,4 @@
-const { conn, sql } = require("../../connectdb");
+const { conn, sql } = require("../utils/connectdb");
 
 module.exports = function () {
   this.getInforKH = async (result) => {

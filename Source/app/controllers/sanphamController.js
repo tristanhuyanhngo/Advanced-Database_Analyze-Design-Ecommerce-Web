@@ -1,4 +1,4 @@
-const Sp = require("../models/sanphamModel");
+const Sp = require("../../models/sanphamModel");
 const modelSP = new Sp();
 
 exports.getList = (req, res) => {
