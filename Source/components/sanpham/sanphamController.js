@@ -1,18 +1,32 @@
-const khachHang = require("./khachhangModel");
+const khachHang = require("./sanphamModel");
 const modelKH = new khachHang();
 
-exports.login = (req, res) => {
-  modelKH.customerlogin(req.body,(e, data) => {
-    res.render('login', { result: data, error: e });
+exports.get = (req, res) => {
+  modelKH.getpromotionproduct((e, data) => {
+    res.render("index", { r :data});
   });
 };
 
-exports.paging = (req, res) => {
-  res.render('login');
+exports.get1 = (req, res) => {
+  modelKH.getfreshmilkproduct((e, data) => {
+    res.render("index", { r :data});
+  });
 };
 
-exports.signin = (req, res) => {
-  modelKH.customersignin(req.body,(e, data) => {
-    res.render('login', { result: data, error: e });
+exports.get2 = (req, res) => {
+  modelKH.getpowderedmilkproduct((e, data) => {
+    res.render("index", { r :data});
+  });
+};
+
+exports.get3 = (req, res) => {
+  modelKH.getdiaperdiapersproduct((e, data) => {
+    res.render("index", { r :data});
+  });
+};
+
+exports.get4 = (req, res) => {
+  modelKH.getnutritionproduct((e, data) => {
+    res.render("index", { r :data});
   });
 };

@@ -26,7 +26,6 @@ module.exports = function () {
       const sqlstring =
         "insert into khachhang(HoTenKhachHang, GioiTinhKhachHang, NgaySinhKhachHang, SoNha, TenDuong,Phuong_Xa, Quan_Huyen, Tinh_ThanhPho, SDT, pass) " +
         "values(@varName, @varGen, @varDate, @varSN, @varTD, @varPX, @varQH, @varTTT, @varSDT, @varPass)";
-      console.log(sqlstring);
       return await pool
         .request()
         .input("varName", sql.NVarChar, data.name)

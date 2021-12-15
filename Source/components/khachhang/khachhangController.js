@@ -9,12 +9,12 @@ exports.paging = (req, res) => {
 exports.login = (req, res) => {
   modelKH.customerlogin(req.body,(e, data) => {
     console.log(data)
-    res.render('shop',{ result: data, error: e });
+    res.render('index',{ result: data, error: e });
   });
 };
 
 exports.signin = (req, res) => {
   modelKH.customersignin(req.body,(e, data) => {
-    res.render('shop',{ result: data, error: e });
+    res.render('index',{ result: data, error: e });
   });
 };
