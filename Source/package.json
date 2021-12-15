@@ -15,6 +15,7 @@
     "morgan": "~1.9.1",
     "msnodesqlv8": "^2.4.3",
     "mssql": "^7.3.0",
+    "passport": "^0.5.0",
     "webpack": "^5.64.4"
   },
   "devDependencies": {
