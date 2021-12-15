@@ -6,12 +6,12 @@
         <div class="login-form">
           <!--login form-->
           <h2>Đăng nhập</h2>
-          <form action="#">
-            <input type="phone" placeholder="Số điện thoại" />
-            <input type="password" placeholder="Mật khẩu" />
+          <form action="/login" method="post">
+            <input name="phone" type="phone" placeholder="Số điện thoại" />
+            <input name="pass" type="password" placeholder="Mật khẩu" />
             <span>
               <input type="checkbox" class="checkbox" />
-              Ghi nhớ tài khoản
+              Ghi nhớ tài khoản {{result}}
             </span>
             <button type="submit" class="btn btn-default">Đăng nhập</button>
           </form>
