@@ -1,4 +1,4 @@
-const khachHang = require("../../models/khachhangModel");
+const khachHang = require("../models/khachhangModel");
 const modelKH = new khachHang();
 
 exports.getList = (req, res) => {

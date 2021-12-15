@@ -1,4 +1,4 @@
-const { conn, sql } = require("../utils/connectdb");
+const { conn, sql } = require("../../connectdb");
 
 module.exports = function () {
   this.xacNhanDonHang = async (DSSP, TT, result) => {

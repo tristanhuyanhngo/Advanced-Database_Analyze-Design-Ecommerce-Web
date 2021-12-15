@@ -1,4 +1,4 @@
-const { conn, sql } = require("../utils/connectdb");
+const { conn, sql } = require("../../connectdb");
 
 //menu chính, đặt hàng, theo dõi đơn hàng
 module.exports = function () {

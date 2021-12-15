@@ -1,4 +1,4 @@
-const Donhang = require("../../models/donhangModel");
+const Donhang = require("../models/donhangModel");
 var dhModel = new Donhang();
 
 exports.xacnhan = (req, res) => {
