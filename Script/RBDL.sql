@@ -24,110 +24,92 @@ END
 
 go
 
-create function fn_dongia (@madh int, @masp int)
-returns int
-begin
-	return (select sanpham.dongia*soluong
-	from sanpham, ChiTietDonHang 
-	where sanpham.masanpham = ChiTietDonHang.masanpham and ChiTietDonHang.masanpham = @masp and ChiTietDonHang.madonhang = @madh) 
-END
-
-go
-
-create function fn_tongtien (@madh int)
-returns int
-begin
-	return (select SUM(chitietdonhang.dongia)
-	from chitietdonhang 
-	where chitietdonhang.madonhang = @madh) 
-END
-
-go
-
-create function fn_tongsoluong (@madh int)
-returns int
-begin
-	return (select SUM(chitietdonhang.soluong)
-	from chitietdonhang 
-	where chitietdonhang.madonhang = @madh) 
-END
-
-go
-
 CREATE TRIGGER tg_ChiTietDonHang
-ON dbo.ChiTietDonHang FOR INSERT,Update
+ON dbo.ChiTietDonHang FOR INSERT
 as
 BEGIN
-	UPDATE dbo.ChiTietDonHang 
-	set ChiTietDonHang.dongia = dbo.fn_dongia( ChiTietDonHang.madonhang, ChiTietDonHang.masanpham)
-	from ChiTietDonHang, inserted 
-	where inserted.madonhang = ChiTietDonHang.madonhang 
+    declare @Dongia INT
+	select @Dongia = (sanpham.dongia * inserted.soluong) 
+	from ChiTietDonHang,sanpham,inserted 
+	where sanpham.masanpham = inserted.masanpham
+	and inserted.madonhang = ChiTietDonHang.madonhang 
 	and inserted.masanpham = ChiTietDonHang.masanpham
 
-	UPDATE dbo.donhang 
-	set donhang.tongtien = dbo.fn_tongtien(donhang.madonhang), donhang.TongSanPham = dbo.fn_tongsoluong (donhang.madonhang), donhang.DiemTichLuy = dbo.fn_tongtien(donhang.madonhang)/1000
-	from donhang, inserted 
-	where inserted.madonhang = donhang.madonhang 
+	begin tran
+		UPDATE dbo.ChiTietDonHang 
+		set ChiTietDonHang.dongia = @Dongia 
+		from ChiTietDonHang, inserted 
+		where inserted.madonhang = ChiTietDonHang.madonhang 
+		and inserted.masanpham = ChiTietDonHang.masanpham
 
+		declare @TongTien INT
+		select @TongTien = SUM(chitietdonhang.dongia)
+		from Chitietdonhang, inserted
+		where chitietdonhang.madonhang = inserted.madonhang
+
+		declare @TongSoLuong INT
+		select @TongSoLuong = SUM(chitietdonhang.soluong)
+		from Chitietdonhang, inserted
+		where chitietdonhang.madonhang = inserted.madonhang
+
+		UPDATE dbo.donhang 
+		set donhang.tongtien = @TongTien, donhang.TongSanPham = @TongSoLuong, donhang.DiemTichLuy = @TongTien/1000
+		from donhang, inserted 
+		where inserted.madonhang = donhang.madonhang 
+	commit
 END
 
 go
 
-create function fn_dongia2 (@mapnh int, @masp int)
-returns int
-begin
-	return (select sanpham.dongia*soluong
-	from sanpham, chitietnhaphang 
-	where sanpham.masanpham = chitietnhaphang.masanpham and chitietnhaphang.masanpham = @masp and chitietnhaphang.MaPhieuNhapHang = @mapnh) 
-END
-
-go
-create function fn_tonggia (@mapnh int)
-returns int
-begin
-	return (select SUM(chitietnhaphang.dongia)
-	from chitietnhaphang 
-	where chitietnhaphang.MaPhieuNhapHang = @mapnh) 
-END
-
-go
 CREATE TRIGGER tg_nhaphang
-ON dbo.chitietnhaphang FOR INSERT,Update
+ON dbo.chitietnhaphang FOR INSERT
 as
 BEGIN
-	UPDATE dbo.chitietnhaphang 
-	set chitietnhaphang.DonGia = dbo.fn_dongia2(chitietnhaphang.MaPhieuNhapHang,chitietnhaphang.masanpham)
-	from chitietnhaphang, inserted 
-	where inserted.MaPhieuNhapHang = chitietnhaphang.MaPhieuNhapHang 
+    declare @Dongia INT
+	select @Dongia = (sanpham.dongia * inserted.soluong) 
+	from chitietnhaphang,sanpham,inserted 
+	where sanpham.masanpham = inserted.masanpham
+	and inserted.MaPhieuNhapHang = chitietnhaphang.MaPhieuNhapHang 
 	and inserted.masanpham = chitietnhaphang.masanpham
 
-	UPDATE dbo.PhieuNhapHang 
-	set PhieuNhapHang.TongGia = dbo.fn_tonggia(PhieuNhapHang.MaPhieuNhapHang) 
-	from PhieuNhapHang, inserted 
-	where inserted.MaPhieuNhapHang = PhieuNhapHang.MaPhieuNhapHang 
-END
+	begin tran
+		UPDATE dbo.chitietnhaphang 
+		set chitietnhaphang.DonGia = @Dongia 
+		from chitietnhaphang, inserted 
+		where inserted.MaPhieuNhapHang = chitietnhaphang.MaPhieuNhapHang 
+		and inserted.masanpham = chitietnhaphang.masanpham
 
-go
+		declare @TongGia INT
+		select @TongGia = SUM(chitietnhaphang.DonGia)
+		from chitietnhaphang, inserted
+		where chitietnhaphang.MaPhieuNhapHang = inserted.MaPhieuNhapHang
 
-create function fn_dongia3 (@makh int, @masp int)
-returns int
-begin
-	return (select sanpham.dongia*soluong
-	from sanpham, ChiTietGioHang 
-	where sanpham.masanpham = ChiTietGioHang.masanpham and ChiTietGioHang.masanpham = @masp and ChiTietGioHang.makhachhang = @makh) 
+		UPDATE dbo.PhieuNhapHang 
+		set PhieuNhapHang.TongGia = @TongGia 
+		from PhieuNhapHang, inserted 
+		where inserted.MaPhieuNhapHang = PhieuNhapHang.MaPhieuNhapHang 
+	commit
 END
 
 go
 
 CREATE TRIGGER tg_giohang
-ON dbo.ChiTietGioHang FOR INSERT, update
+ON dbo.ChiTietGioHang FOR INSERT
 as
 BEGIN
+    declare @Dongia INT
+	select @Dongia = (sanpham.dongia * inserted.soluong) 
+	from ChiTietGioHang,sanpham,inserted 
+	where sanpham.masanpham = inserted.masanpham
+	and inserted.MaKhachHang = ChiTietGioHang.MaKhachHang 
+	and inserted.masanpham = ChiTietGioHang.masanpham
+
 	UPDATE dbo.ChiTietGioHang 
-	set ChiTietGioHang.DonGia = dbo.fn_dongia3(ChiTietGioHang.MaKhachHang,ChiTietGioHang.masanpham) 
+	set ChiTietGioHang.DonGia = @Dongia 
 	from ChiTietGioHang, inserted 
 	where inserted.MaKhachHang = ChiTietGioHang.MaKhachHang 
 	and inserted.masanpham = ChiTietGioHang.masanpham
 END
 
+go 
 
