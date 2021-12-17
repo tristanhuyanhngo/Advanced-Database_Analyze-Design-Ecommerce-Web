@@ -78,41 +78,70 @@ as
 	select * from donhang, diachigiaohang where donhang.diachigiaohang = diachigiaohang.madiachi and diachigiaohang.khachhang = @Makhachhang
 go
 
-
-
-
---Quản trị:
---•	Thêm, xoá, sửa sản phẩm của cửa hàng
---•	Theo dõi tồn kho
---•	Theo dõi giá sản phẩm
---•	Nhập, xuất hàng
---•	Theo dõi lịch sử nhập, xuất hàng
-
-
---Quản lý:
+----------------------------------------------------Nhân viên------------------------------------------------
 --•	Đăng nhập
---•	Thống kê doanh thu 
---•	Kiểm số lượng hàng còn lại của siêu thị
---•	Kiểm tra các mặt hàng bán chạy, bán chậm
---•	Thiết lập giảm giá
---•	Thiết lập khuyến mãi
+CREATE PROCEDURE NVDangNhap
+@username varchar(20), @pass varchar(20)
+as
+	select manhanvien
+	from nhanvien where username = @username and pass = @pass
+go
 
+--•	Kiểm tra đơn hàng chưa được xử lý
+CREATE PROCEDURE NVKiemTraDonHang
+as
+	select *
+	from donhang where Sieuthi is NULL
+go
 
---Nhân sự:
+--• Xác nhận đơn hàng
+CREATE PROCEDURE NVXacNhanDonHang
+@donhang int, @sieuthi int
+as
+	update donhang set sieuthi = @sieuthi where madonhang = @donhang 
+go
+
+--•	Theo dõi đơn hàng
+CREATE PROCEDURE NVTheoDoiDonhang
+@donhang int
+as
+	select * from tinhtrangdonhang where madonhang = @donhang
+go
+
+--• Cập nhập đơn hàng
+CREATE PROCEDURE NVCapNhapDonHang
+@donhang int, @Tinhtrang nvarchar(20)
+as
+	insert into tinhtrangdonhang(MaDonHang,TinhTrang, ThoiGianCapNhap) 
+	values(@donhang,@tinhtrang,getdate())
+go
+
+----------------------------------------------Nhân viên quản lý kho-------------------------------------------------- 
 --•	Đăng nhập
---•	Điểm danh nhân viên
---•	Kiểm tra đơn hàng
---•	Thiết lập lương/thưởng cho nhân viên
+CREATE PROCEDURE NVQLKDangNhap
+@username varchar(20), @pass varchar(20)
+as
+	select MaNVQLK
+	from NhanVienQuanLyKho where username = @username and pass = @pass
+go
 
-
---Nhân viên: 
---•	Đăng nhập
---•	Kiểm tra đơn hàng và xác nhận
---•	Theo dõi và cập nhập đơn hàng
-
-
---Nhân viên quản lý kho: 
---•	Đăng nhập
 --•	Kiểm tra số lượng tồn kho
+CREATE PROCEDURE NVQLKKiemTraSoLuongTonKho
+@kho int
+as
+	select * from chitietkho where makho = @kho
+go
+
 --•	Lập phiếu nhập
+CREATE PROCEDURE NVQLKLapPhieuNhap
+@kho int, @nhacungcap int
+as
+	insert into phieunhaphang(Kho,NhaCungCap,NgayNhapHang) values(@kho,@nhacungcap,getdate())
+go
+
 --•	Lập phiếu xuất
+CREATE PROCEDURE NVQLKLapPhieuXuat
+@kho int, @Sieuthi int
+as
+	insert into phieuxuathang(Kho,SieuThi,NgayXuatHang) values(@kho,@Sieuthi,getdate())
+go
