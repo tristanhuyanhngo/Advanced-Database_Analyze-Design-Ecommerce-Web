@@ -1,285 +1,317 @@
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-9 padding-right">
+        <div class="product-details">
+          <!--product-details-->
+          <div class="col-sm-5">
+            <div class="view-product">
+              <img src="/images/home/bobby.jpg" alt="" />
             </div>
-            <div class="col-sm-9 padding-right">
-                <div class="product-details">
-                    <!--product-details-->
-                    <div class="col-sm-5">
-                        <div class="view-product">
-                            <img src="/images/home/bobby.jpg" alt="" />
-                        </div>
-                    </div>
-                    <div class="col-sm-7">
-                        <div class="product-information">
-                            <!--/product-information-->
-                            <h2 style="font-size: 30px; font-weight: bold">
-                                Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)
-                            </h2>
-                            <p style="color: #ffaaca !important">MSP: 1236000000003</p>
-                            <span
-                                    style="color: #ee3e80; font-size: 30px; font-weight: bold"
-                            >255.000đ</span>
-                            <div class="cart-buttons box-quantity">
+          </div>
+          <div class="col-sm-7">
+            <div class="product-information">
+              <!--/product-information-->
+              <h2 style="font-size: 30px; font-weight: bold">
+                Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)
+              </h2>
+              <p style="color: #ffaaca !important">MSP: 1236000000003</p>
+              <span
+                style="color: #ee3e80; font-size: 30px; font-weight: bold"
+              >255.000đ</span>
+              <div class="cart-buttons box-quantity">
                 <span href="#down" onclick="changeQuanty(0);" class="">
                   <button
-                          class="down-quantity-product btn btn-down-quantity btn-secondary"
-                          style="margin-right: 3px; touch-action: manipulation"
-                          type="button"
+                    class="down-quantity-product btn btn-down-quantity btn-secondary"
+                    style="margin-right: 3px; touch-action: manipulation"
+                    type="button"
                   >
                     <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="4"
-                            viewBox="0 0 16 4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="4"
+                      viewBox="0 0 16 4"
                     >
                       <path
-                              fill="#EE3E80"
-                              fill-rule="nonzero"
-                              d="M14.571.571H1.43a1.429 1.429 0 0 0 0 2.858H14.57a1.429 1.429 0 0 0 0-2.858z"
+                        fill="#EE3E80"
+                        fill-rule="nonzero"
+                        d="M14.571.571H1.43a1.429 1.429 0 0 0 0 2.858H14.57a1.429 1.429 0 0 0 0-2.858z"
                       ></path>
                     </svg>
                   </button>
                 </span>
-                                <input
-                                        size="2"
-                                        class="btn btn-down btn-outline btn-quantity"
-                                        id="quantity_wanted"
-                                        name="quantity"
-                                        type="text"
-                                        value="1"
-                                        maxlength="2"
-                                />
-                                <span href="#up" onclick="changeQuanty(1);" class="">
+                <input
+                  size="2"
+                  class="btn btn-down btn-outline btn-quantity"
+                  id="quantity_wanted"
+                  name="quantity"
+                  type="text"
+                  value="1"
+                  maxlength="2"
+                />
+                <span href="#up" onclick="changeQuanty(1);" class="">
                   <button
-                          class="btn up-quantity-product btn-up-quantity btn-secondary up-quantity-product"
-                          style="touch-action: manipulation"
-                          type="button"
+                    class="btn up-quantity-product btn-up-quantity btn-secondary up-quantity-product"
+                    style="touch-action: manipulation"
+                    type="button"
                   >
                     <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                              fill="#EE3E80"
-                              fill-rule="nonzero"
-                              d="M21.857 9.857h-7.286a.429.429 0 0 1-.428-.428V2.143a2.143 2.143 0 0 0-4.286 0v7.286a.429.429 0 0 1-.428.428H2.143a2.143 2.143 0 0 0 0 4.286h7.286c.236 0 .428.192.428.428v7.286a2.143 2.143 0 0 0 4.286 0v-7.286c0-.236.192-.428.428-.428h7.286a2.143 2.143 0 0 0 0-4.286z"
+                        fill="#EE3E80"
+                        fill-rule="nonzero"
+                        d="M21.857 9.857h-7.286a.429.429 0 0 1-.428-.428V2.143a2.143 2.143 0 0 0-4.286 0v7.286a.429.429 0 0 1-.428.428H2.143a2.143 2.143 0 0 0 0 4.286h7.286c.236 0 .428.192.428.428v7.286a2.143 2.143 0 0 0 4.286 0v-7.286c0-.236.192-.428.428-.428h7.286a2.143 2.143 0 0 0 0-4.286z"
                       ></path>
                     </svg>
                   </button>
                 </span>
 
-                                <span
-                                        class="deal_span text-primary font-12"
-                                        style="margin-top: 5px"
-                                ></span>
-                                <span
-                                        class="ajax-message-error italic font-12"
-                                        style="margin-top: 5px"
-                                ></span>
-                            </div>
-                            <p style="color: #ee3e5d !important">
-                                Giá trước khuyến mãi: 270.000đ
-                            </p>
-                            <p><b>Loại:</b> Bỉm tã quần</p>
-                            <p><b>Thương hiệu:</b> Bobby</p>
-                            <p><b>Số lượng còn lại:</b> 13</p>
-                            <button
-                                    type="button"
-                                    class="btn btn-fefault cart"
-                                    style="margin-top: 20px"
-                            >
-                                CHỌN MUA
-                            </button>
-                        </div>
-                        <!--/product-information-->
-                    </div>
-                </div>
-                <!--/product-details-->
-
-                <!--/category-tab-->
-
-                <div class="recommended_items" style="margin-top: -30px">
-                    <!--recommended_items-->
-                    <h2
-                            class="title text-center"
-                            style="color: #3567d7; font-size: 20px; font-weight: bold"
-                    >
-                        Sản phẩm thường mua cùng
-                    </h2>
-
-                    <div
-                            id="recommended-item-carousel"
-                            class="carousel slide"
-                            data-ride="carousel"
-                    >
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/images/home/bobby1.jpg" alt="" style="height:192px; width: 192px; margin-bottom: 40px"/>
-                                                <h2 style="margin-top: -10px">124.000đ</h2>
-                                                <p style="font-weight: bold">Miếng lót Bobby size Newborn 1 108 miếng (dưới 5kg)</p>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    CHỌN MUA
-                                                </button>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    XEM
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/images/home/bobby1.jpg" alt="" style="height:192px; width: 192px; margin-bottom: 40px"/>
-                                                <h2 style="margin-top: -10px">124.000đ</h2>
-                                                <p style="font-weight: bold">Miếng lót Bobby size Newborn 1 108 miếng (dưới 5kg)</p>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    CHỌN MUA
-                                                </button>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    XEM
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/huggies1.jpg" alt="" style="height:165px; width: 165px; margin-bottom: 40px" />
-                                                <h2 style="margin-top: -10px">690.000đ</h2>
-                                                <p style="font-weight: bold">Combo 2 bỉm tã dán Huggies Platinum Nature Made size S 82 miếng (4-8kg)</p>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    CHỌN MUA
-                                                </button>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    XEM
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/images/home/bobby1.jpg" alt="" style="height:192px; width: 192px; margin-bottom: 40px"/>
-                                                <h2 style="margin-top: -10px">124.000đ</h2>
-                                                <p style="font-weight: bold">Miếng lót Bobby size Newborn 1 108 miếng (dưới 5kg)</p>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    CHỌN MUA
-                                                </button>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    XEM
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="/images/home/huggies.jpg" alt="" style="height:136px; width: 136px; margin-bottom: 40px"/>
-                                                <h2 style="margin-top: -10px">355.000đ</h2>
-                                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 410.000đ</p>
-                                                <p style="font-weight: bold">Bỉm tã dán Huggies Platinum Nature Made size XL 44 miếng (12-17kg)</p>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    CHỌN MUA
-                                                </button>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    XEM
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="images/home/bobby.jpg" alt="" style="height:157px; width: 157px; margin-bottom: 40px" />
-                                                <h2 style="margin-top: -10px">255.000đ</h2>
-                                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 270.000đ</p>
-                                                <p style="font-weight: bold">Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)</p>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    CHỌN MUA
-                                                </button>
-                                                <button
-                                                        type="button"
-                                                        class="btn btn-default add-to-cart"
-                                                >
-                                                    XEM
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a
-                                class="left recommended-item-control"
-                                href="#recommended-item-carousel"
-                                data-slide="prev"
-                        >
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a
-                                class="right recommended-item-control"
-                                href="#recommended-item-carousel"
-                                data-slide="next"
-                        >
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <!--/recommended_items-->
+                <span
+                  class="deal_span text-primary font-12"
+                  style="margin-top: 5px"
+                ></span>
+                <span
+                  class="ajax-message-error italic font-12"
+                  style="margin-top: 5px"
+                ></span>
+              </div>
+              <p style="color: #ee3e5d !important">
+                Giá trước khuyến mãi: 270.000đ
+              </p>
+              <p><b>Loại:</b> Bỉm tã quần</p>
+              <p><b>Thương hiệu:</b> Bobby</p>
+              <p><b>Số lượng còn lại:</b> 13</p>
+              <button
+                type="button"
+                class="btn btn-fefault cart"
+                style="margin-top: 20px"
+              >
+                CHỌN MUA
+              </button>
             </div>
+            <!--/product-information-->
+          </div>
         </div>
+        <!--/product-details-->
+
+        <!--/category-tab-->
+
+        <div class="recommended_items" style="margin-top: -30px">
+          <!--recommended_items-->
+          <h2
+            class="title text-center"
+            style="color: #3567d7; font-size: 20px; font-weight: bold"
+          >
+            Sản phẩm thường mua cùng
+          </h2>
+
+          <div
+            id="recommended-item-carousel"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="item active">
+                <div class="col-sm-4">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img
+                          src="/images/home/bobby1.jpg"
+                          alt=""
+                          style="height:192px; width: 192px; margin-bottom: 40px"
+                        />
+                        <h2 style="margin-top: -10px">124.000đ</h2>
+                        <p style="font-weight: bold">Miếng lót Bobby size
+                          Newborn 1 108 miếng (dưới 5kg)</p>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          CHỌN MUA
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          XEM
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img
+                          src="/images/home/bobby1.jpg"
+                          alt=""
+                          style="height:192px; width: 192px; margin-bottom: 40px"
+                        />
+                        <h2 style="margin-top: -10px">124.000đ</h2>
+                        <p style="font-weight: bold">Miếng lót Bobby size
+                          Newborn 1 108 miếng (dưới 5kg)</p>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          CHỌN MUA
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          XEM
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img
+                          src="images/home/huggies1.jpg"
+                          alt=""
+                          style="height:165px; width: 165px; margin-bottom: 40px"
+                        />
+                        <h2 style="margin-top: -10px">690.000đ</h2>
+                        <p style="font-weight: bold">Combo 2 bỉm tã dán Huggies
+                          Platinum Nature Made size S 82 miếng (4-8kg)</p>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          CHỌN MUA
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          XEM
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="col-sm-4">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img
+                          src="/images/home/bobby1.jpg"
+                          alt=""
+                          style="height:192px; width: 192px; margin-bottom: 40px"
+                        />
+                        <h2 style="margin-top: -10px">124.000đ</h2>
+                        <p style="font-weight: bold">Miếng lót Bobby size
+                          Newborn 1 108 miếng (dưới 5kg)</p>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          CHỌN MUA
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          XEM
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img
+                          src="/images/home/huggies.jpg"
+                          alt=""
+                          style="height:136px; width: 136px; margin-bottom: 40px"
+                        />
+                        <h2 style="margin-top: -10px">355.000đ</h2>
+                        <p style="color: #ee3e5d!important">Giá trước khuyến
+                          mãi: 410.000đ</p>
+                        <p style="font-weight: bold">Bỉm tã dán Huggies Platinum
+                          Nature Made size XL 44 miếng (12-17kg)</p>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          CHỌN MUA
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          XEM
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <img
+                          src="images/home/bobby.jpg"
+                          alt=""
+                          style="height:157px; width: 157px; margin-bottom: 40px"
+                        />
+                        <h2 style="margin-top: -10px">255.000đ</h2>
+                        <p style="color: #ee3e5d!important">Giá trước khuyến
+                          mãi: 270.000đ</p>
+                        <p style="font-weight: bold">Tã dán Bobby siêu thấm -
+                          khô thoáng (S, 4-8kg, 80 miếng)</p>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          CHỌN MUA
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-default add-to-cart"
+                        >
+                          XEM
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a
+              class="left recommended-item-control"
+              href="#recommended-item-carousel"
+              data-slide="prev"
+            >
+              <i class="fa fa-angle-left"></i>
+            </a>
+            <a
+              class="right recommended-item-control"
+              href="#recommended-item-carousel"
+              data-slide="next"
+            >
+              <i class="fa fa-angle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!--/recommended_items-->
+      </div>
     </div>
+  </div>
 </section>

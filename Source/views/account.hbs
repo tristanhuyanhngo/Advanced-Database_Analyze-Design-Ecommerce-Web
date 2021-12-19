@@ -6,15 +6,15 @@
                     <!--sign up form-->
                     <h2>Thông tin tài khoản</h2>
                     <form>
-                        <input name="name" type="text" placeholder="Nguyen Van A" />
-                        <input name="gen" type="text" placeholder="Nam" />
-                        <input name="date" type="text" placeholder="01-01-2001" />
-                        <input name="sonha" type="text" placeholder="14" />
-                        <input name="duong" type="text" placeholder="Sư Vạn Hạnh" />
-                        <input name="phuongxa" type="text" placeholder="Phường 12" />
-                        <input name="quanhuyen" type="text" placeholder="Quận 10" />
-                        <input name="tinh" type="text" placeholder="Thành phố Hồ Chí Minh" />
-                        <input name="sodienthoai" type="phone" placeholder="0456868693" />
+                        <input name="name" type="text" value={{user.HoTenKhachHang}} />
+                        <input name="gen" type="text" value={{user.GioiTinhKhachHang}} />
+                        <input name="date" type="text" value={{user.NgaySinhKhachHang}} />
+                        <input name="sonha" type="text" value={{user.SoNha}} />
+                        <input name="duong" type="text" value={{user.TenDuong}} />
+                        <input name="phuongxa" type="text" value={{user.Tinh_ThanhPho}} />
+                        <input name="quanhuyen" type="text" value={{user.Quan_Huyen}} />
+                        <input name="tinh" type="text" value={{user.Phuong_Xa}} />
+                        <input name="sodienthoai" disabled type="phone" value={{user.SDT}} />
                     </form>
                 </div>
                 <!--/sign up form-->
