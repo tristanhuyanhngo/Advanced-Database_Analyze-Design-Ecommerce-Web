@@ -38,10 +38,9 @@ create function fn_tongtien (@madh int)
 returns int
 begin
 	return (select SUM(chitietdonhang.dongia)
-	from chitietdonhang 
-	where chitietdonhang.madonhang = @madh) 
+	from chitietdonhang
+	where chitietdonhang.madonhang = @madh)
 END
-
 go
 
 create function fn_tongsoluong (@madh int)
@@ -65,7 +64,7 @@ BEGIN
 	and inserted.masanpham = ChiTietDonHang.masanpham
 
 	UPDATE dbo.donhang 
-	set donhang.tongtien = dbo.fn_tongtien(donhang.madonhang), donhang.TongSanPham = dbo.fn_tongsoluong (donhang.madonhang), donhang.DiemTichLuy = dbo.fn_tongtien(donhang.madonhang)/1000
+	set donhang.tongtien = dbo.fn_tongtien(donhang.madonhang) *(100+VAT)/100 , donhang.TongSanPham = dbo.fn_tongsoluong (donhang.madonhang), donhang.DiemTichLuy = dbo.fn_tongtien(donhang.madonhang)/1000
 	from donhang, inserted 
 	where inserted.madonhang = donhang.madonhang 
 

@@ -156,7 +156,6 @@ create table ChiTietSieuThi
 create table DonHang
 (
 	MaDonHang int primary key identity,
-	SoDienThoaiKhachHang varchar(10),
 	VAT int, 
 	TongSanPham int, 
 	TongTien int,

@@ -15,7 +15,7 @@ GRANT SELECT ON [dbo].[KhachHang] ([HoTenKhachHang],[Phuong_Xa],[Tinh_ThanhPho],
 GRANT SELECT ON [dbo].[SanPham] ([DonGia],[MoTaSanPham],[ThuongHieu],[LoaiSanPham],[TenSanPham]) TO [KhachHang]
 
 GRANT SELECT ON [dbo].[DonHang] ([DonViVanChuyen],[TongSanPham],[TongTien],[DiemTichLuy],[DiaChiGiaoHang],
-[HinhThucThanhToan],[ThoiGianNhanHangDuKien],[SoDienThoaiKhachHang],[ThoiGianDatHang],[VAT]) TO [KhachHang] AS [dbo]
+[HinhThucThanhToan],[ThoiGianNhanHangDuKien],[ThoiGianDatHang],[VAT]) TO [KhachHang] AS [dbo]
 
 GRANT DELETE,INSERT,SELECT,UPDATE ON [dbo].[Be] TO [KhachHang]
 

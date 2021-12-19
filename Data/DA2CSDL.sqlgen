@@ -2014,50 +2014,6 @@ Version:4.4.0.2241-->
           <DefinedSize>4</DefinedSize>
         </value>
         <value version="1" type="SDGField">
-          <Name>SoDienThoaiKhachHang</Name>
-          <FieldType>Generated</FieldType>
-          <PrimaryKey>False</PrimaryKey>
-          <ForeignKey>False</ForeignKey>
-          <Unique>False</Unique>
-          <AllowsNulls>True</AllowsNulls>
-          <SqlType>Varchar</SqlType>
-          <Precision>0</Precision>
-          <Scale>0</Scale>
-          <DefinedSize>10</DefinedSize>
-          <Generator version="1" type="GeneratorDetails">
-            <GeneratorTypeName>RedGate.SQLDataGenerator.ExpressionGenerators.Regexp.RegexpGenerator</GeneratorTypeName>
-            <DisplayName>Regex Generator</DisplayName>
-            <Description>Generates data from a Regular Expression</Description>
-            <CategoryName>Generic</CategoryName>
-            <GeneratorProperties type="Dictionary&lt;string, object&gt;" version="1">
-              <element>
-                <key type="string">Expression</key>
-                <value type="string">084[0-9]{6}</value>
-              </element>
-              <element>
-                <key type="string">UseSequence</key>
-                <value type="string">False</value>
-              </element>
-              <element>
-                <key type="string">NullsAllowed</key>
-                <value type="string">True</value>
-              </element>
-              <element>
-                <key type="string">NullProportion</key>
-                <value type="string">0.01</value>
-              </element>
-              <element>
-                <key type="string">Seed</key>
-                <value type="string">10241</value>
-              </element>
-              <element>
-                <key type="string">Unique</key>
-                <value type="string">False</value>
-              </element>
-            </GeneratorProperties>
-          </Generator>
-        </value>
-        <value version="1" type="SDGField">
           <Name>VAT</Name>
           <FieldType>Generated</FieldType>
           <PrimaryKey>False</PrimaryKey>
@@ -2088,11 +2044,11 @@ Version:4.4.0.2241-->
               </element>
               <element>
                 <key type="string">MinValue</key>
-                <value type="string">0</value>
+                <value type="string">5</value>
               </element>
               <element>
                 <key type="string">MaxValue</key>
-                <value type="string">5</value>
+                <value type="string">15</value>
               </element>
               <element>
                 <key type="string">UseColumnOffset</key>
