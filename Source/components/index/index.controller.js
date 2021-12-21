@@ -2,7 +2,6 @@ const Index = require("./index.model");
 const modelIndex = new Index();
 exports.paging = (req, res) => {
   modelIndex.page((e, data) => {
-    console.log(data.khuyenmai);
     if (!e)
       res.render("index", {
         baby: data.baby,

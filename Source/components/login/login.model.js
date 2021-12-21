@@ -10,7 +10,7 @@ module.exports = function () {
       return await pool
         .request()
         .input("varSDT", sql.VarChar, data.phone)
-        .input("varPass", sql.VarChar, data.pass)
+        .input("varPass", sql.VarChar, data.password)
         .query(sqlstring, (e, data2) => {
           if (data2.recordset.length > 0) result(null, data2.recordset[0].MaKhachHang);
           else result(true, null);
