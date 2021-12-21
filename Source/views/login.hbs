@@ -7,13 +7,19 @@
           <!--login form-->
           <h2>Đăng nhập</h2>
           <form action="/login/signin" method="POST">
-            <input required name="phone" type="phone" placeholder="Số điện thoại" />
-            <input required name="pass" type="password" placeholder="Mật khẩu" />
-            <span>
-              <input type="checkbox" class="checkbox" />
-              Ghi nhớ tài khoản
-            </span>
-             <p>{{messages.mess2}}</p>
+            <input
+              required
+              name="phone"
+              type="phone"
+              placeholder="Số điện thoại"
+            />
+            <input
+              required
+              name="password"
+              type="password"
+              placeholder="Mật khẩu"
+            />
+            <p>{{messages.mess2}}</p>
             <button type="submit" class="btn btn-default">Đăng nhập</button>
           </form>
         </div>
@@ -28,15 +34,46 @@
           <h2>Đăng ký</h2>
           <form action="/login/register" method="POST">
             <input required name="name" type="text" placeholder="Họ và tên" />
-            <input required name="gen" type="text" placeholder="Giới tính" />
-            <input required name="date" type="text" placeholder="Ngày sinh" />
+            <label for="gen">Giới tính:</label>
+            <select required id="gen" name="gen" style="margin-bottom: 10px">
+              <option value="nu">Nữ</option>
+              <option value="nam">Nam</option>
+              <option value="khac">Khác</option>
+            </select>
+            <label for="date">Ngày sinh</label>
+            <input required type="date" name="date" id="dateofbirth" />
             <input required name="sonha" type="text" placeholder="Số nhà" />
             <input required name="duong" type="text" placeholder="Đường" />
-            <input required name="phuongxa" type="text" placeholder="Phường/Xã" />
-            <input required name="quanhuyen" type="text" placeholder="Quận/Huyện" />
-            <input required name="tinh" type="text" placeholder="Thành phố/Tỉnh" />
-            <input required name="sodienthoai" type="phone" placeholder="Số điện thoại" />
-            <input required name="password" type="password" placeholder="Mật khẩu" />
+            <input
+              required
+              name="phuongxa"
+              type="text"
+              placeholder="Phường/Xã"
+            />
+            <input
+              required
+              name="quanhuyen"
+              type="text"
+              placeholder="Quận/Huyện"
+            />
+            <input
+              required
+              name="tinh"
+              type="text"
+              placeholder="Thành phố/Tỉnh"
+            />
+            <input
+              required
+              name="sodienthoai"
+              type="phone"
+              placeholder="Số điện thoại"
+            />
+            <input
+              required
+              name="password"
+              type="password"
+              placeholder="Mật khẩu"
+            />
             <button type="submit" class="btn btn-default">Đăng ký</button>
           </form>
           <p>{{messages.mess}}</p>

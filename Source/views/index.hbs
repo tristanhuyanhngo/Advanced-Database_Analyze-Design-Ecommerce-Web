@@ -1,788 +1,243 @@
-<section id="slider"><!--slider-->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12" style="background-color:white">
-                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
-                    </ol>
-
-                    <div class="carousel-inner" style="margin-top:20px" >
-                        <div class="item active">
-                            <div class="col-sm-6">
-                                <h1>Bỉm tã quần </h1>
-                                <h2>Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)</h2>
-                                <p>255.000đ</p>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 270.000đ</p>
-                                <a href="/product-details"><button href="/product-details" type="button" class="btn btn-default get">Xem chi tiết</button></a>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="/images/home/bobby.jpg" class="girl img-responsive" alt="" />
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1>Sữa tươi</h1>
-                                <h2>Thực phẩm dinh dưỡng y học Abbott Pediasure 650g hương vani (1-10 tuổi)</h2>
-                                <p>470.000đ</p>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 595.000đ</p>
-                                <button type="button" class="btn btn-default get">Xem chi tiết</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="/images/home/pediasure.png" style="height: 290px" class="girl img-responsive" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1>Bột ăn dặm</h1>
-                                <h2>Bột ăn dặm Ridielac Gold 4 vị Mặn HG 200g</h2>
-                                <p>Giá: 65.000đ </p>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 75.000đ</p>
-                                <button type="button" class="btn btn-default get">Xem chi tiết</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="/images/home/ridielac.jpg" style="height: 230px" class="girl img-responsive" alt="" />
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section><!--/slider-->
-
 <section>
-    <div class="container">
-        <div class="row">
-        </div>
-        <div class="col-sm-12 padding-right">
-            <div class="features_items"><!--features_items-->
-                <h2 class="title text-center">Khuyến mãi</h2>
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center" style="height: 450px">
-
-                                <img src="/images/home/pediasure.png" alt="" style="height: 250px; width: 250px; margin-bottom: 20px"/>
-                                <h2>470.000đ</h2>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 595.000đ</p>
-                                <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Abbott Pediasure 650g hương vani (1-10 tuổi)</p>
-                                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                <a href="#" class="btn btn-default add-to-cart">Xem</a>
-
-                            </div>
-                        </div>
-                    </div>
+  <div class="container">
+    <div class="row">
+      <ion-footer>
+        <button
+          onclick="topFunction()"
+          id="myBtn"
+          title="Go to top"
+        >Top</button>
+      </ion-footer>
+      <div class="col-sm-12 padding-right">
+        <div class="category-tab" id="category"><!--category-tab-->
+          <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#suabot" data-toggle="tab">Sữa bột</a></li>
+              <li><a href="#suatuoi" data-toggle="tab">Sữa tươi</a></li>
+              <li><a href="#bimta" data-toggle="tab">Bỉm tã</a></li>
+              <li><a href="#andam" data-toggle="tab">Ăn dặm</a></li>
+              <li><a href="#cssk" data-toggle="tab">Chăm sóc sức khỏe</a></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade active in" id="suabot">
+              <!--sua bot-->
+              {{#each suabot}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center" style="height:450px">
-                                <img src="/images/home/ensure1.jpg" alt="" style="height: 250px; width: 250px; margin-bottom: 40px"/>
-                                <h2>1.156.000đ</h2>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 1.250.000đ</p>
-                                <p style="font-weight: bold">Thùng sữa Ensure Gold Vigor - 237ml - 4 Lốc</p>
-                                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                            </div>
-                        </div>
-                    </div>
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="suatuoi">
+              <!--sua bot-->
+              {{#each suatuoi}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper" >
-                        <div class="single-products">
-                            <div class="productinfo text-center" style="height:450px">
-                                <img src="/images/home/huggies.jpg" alt="" style="height:230px; width: 230px; margin-bottom: 40px"/>
-                                <h2>355.000đ</h2>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 410.000đ</p>
-                                <p style="font-weight: bold">Bỉm tã dán Huggies Platinum Nature Made size XL 44 miếng (12-17kg)</p>
-                                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                            </div>
-                        </div>
-                    </div>
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="bimta">
+              <!--sua bot-->
+              {{#each bimsua}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center" style="height:450px">
-                                <img src="/images/home/ridielac.jpg" alt="" style="height: 250px; width: 250px; margin-bottom: 25px"/>
-                                <h2>65.000đ</h2>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 75.000đ</p>
-                                <p style="font-weight: bold">Bột ăn dặm Ridielac Gold 4 Vị Mặn HG 200g</p>
-                                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                            </div>
-
-                        </div>
-                    </div>
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="andam">
+              <!--sua bot-->
+              {{#each andam}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center" style="height:450px">
-                                <img src="/images/home/johnson.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                <h2>132.000đ</h2>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 140.000đ</p>
-                                <p style="font-weight: bold">Tắm gội dịu nhẹ như bông Johnson's baby cotton touch 500ml</p>
-                                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                <a href="#" class="btn btn-default add-to-cart">Xem</a>
-
-                            </div>
-                        </div>
-
-                    </div>
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="cssk">
+              <!--sua bot-->
+              {{#each cssk}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-                            <div class="productinfo text-center" style="height:450px">
-                                <img src="/images/home/bobby.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                <h2>255.000đ</h2>
-                                <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 270.000đ</p>
-                                <p style="font-weight: bold">Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)</p>
-                                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                <a href="/product-details" class="btn btn-default add-to-cart">Xem</a>
-                            </div>
-                        </div>
-
-                    </div>
+              {{/each}}
+            </div>
+          </div>
+        </div><!--/category-tab-->
+        <div class="category-tab" id="brand"><!--brand-tab-->
+          <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+              <li class="active"><a
+                  href="#ensure"
+                  data-toggle="tab"
+                >Ensure</a></li>
+              <li><a href="#pedisure" data-toggle="tab">Pedisure</a></li>
+              <li><a href="#huggies" data-toggle="tab">Huggies</a></li>
+              <li><a href="#bobby" data-toggle="tab">Bobby</a></li>
+              <li><a href="#johnson" data-toggle="tab">Johnson Baby</a></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane fade active-in" id="ensure">
+              <!--sua bot-->
+              {{#each ensure}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-
-            </div><!--features_items-->
-
-            <div class="category-tab"><!--category-tab-->
-                <div class="col-sm-12">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#suabot" data-toggle="tab">Sữa bột</a></li>
-                        <li><a href="#suatuoi" data-toggle="tab">Sữa tươi</a></li>
-                        <li><a href="#bimta" data-toggle="tab">Bỉm tã</a></li>
-                        <li><a href="#andam" data-toggle="tab">Ăn dặm</a></li>
-                        <li><a href="#cssk" data-toggle="tab">Chăm sóc sức khỏe</a></li>
-                    </ul>
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="pedisure">
+              <!--sua bot-->
+              {{#each pedisure}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="tab-content">
-                    <div class="tab-pane fade active in" id="suabot" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pediasure.png" alt="" style="height: 200px; width: 200px; margin-bottom: 20px"/>
-                                        <h2>470.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 595.000đ</p>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Abbott Pediasure 650g hương vani (1-10 tuổi)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure2.jpg" alt="" style="height: 210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>729.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Ensure Gold hương Vani 850g</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pediasure.png" alt="" style="height: 230px; width: 240px; margin-bottom: 20px"/>
-                                        <h2>820.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Abbott Pediasure 1kg hương vani (1-10 tuổi)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pediasure.png" alt="" style="height: 230px; width: 240px; margin-bottom: 20px"/>
-                                        <h2>999.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Abbott Pediasure 1.6kg hương vani (1-10 tuổi)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="suatuoi" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure.jpg" alt="" style="height:225px; width: 225px; margin-bottom: 25px" />
-                                        <h2>212.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Ensure dạng lỏng hương vani 237ML - Lốc 6 chai</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure1.jpg" alt="" style="height:225px; width: 225px; margin-bottom: 25px"/>
-                                        <h2>289.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Ensure Gold Vigor 237ml - Lốc 6 chai</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pedisure1.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px" />
-                                        <h2>984.000đ</h2>
-                                        <p style="font-weight: bold">Thùng thực phẩm dinh dưỡng y học cho trẻ 1-10 tuổi: Pediasure hương vani (110ml) (Lốc 4) (12 lốc)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pedisure2.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>119.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học cho trẻ 1-10 tuổi: Pediasure hương vani 180ml (Lốc 4 hộp)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="bimta" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/bobby.jpg" alt=""/>
-                                        <h2>255.000đ</h2>
-                                        <p style="font-weight: bold">Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="/product-details" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/bobby1.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>124.000đ</h2>
-                                        <p style="font-weight: bold">Miếng lót Bobby size Newborn 1 108 miếng (dưới 5kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/huggies.jpg" alt="" style="height:190px; width: 190px; margin-bottom: 40px"/>
-                                        <h2>355.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 410.000đ</p>
-                                        <p style="font-weight: bold">Bỉm tã dán Huggies Platinum Nature Made size XL 44 miếng (12-17kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/huggies2.jpg" alt=""/>
-                                        <h2>355.000đ</h2>
-                                        <p style="font-weight: bold">Bỉm tã dán Huggies Platinum Nature Made size M 64 miếng (6-11kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="andam" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ridielac.jpg" alt="" style="height: 210px; width: 210px; margin-bottom: 25px"/>
-                                        <h2>65.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 75.000đ</p>
-                                        <p style="font-weight: bold">Bột ăn dặm Ridielac Gold 4 Vị Mặn HG 200g</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/heiz.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>140.250đ</h2>
-                                        <p style="font-weight: bold">Bột ăn dặm Heinz - Ngũ cốc, cà rốt, phô mai, bắp ngọt</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/heinz-gao-xay.jpg" alt=""/>
-                                        <h2>140.250đ</h2>
-                                        <p style="font-weight: bold">Bột ăn dặm Heinz - Gạo, rau củ xay nhuyễn</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ridielac1.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>56.000đ</h2>
-                                        <p style="font-weight: bold"> Bột ăn dặm Ridielac Gold 3 Vị Ngọt HG 200g</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="cssk" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/johnson1.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>82.000đ</h2>
-                                        <p style="font-weight: bold">Phấn thơm hương hoa Johnson Baby (500gr)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/johnson.jpg" alt="" style="height: 210px; width: 210px; margin-bottom: 25px"/>
-                                        <h2>132.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 140.000đ</p>
-                                        <p style="font-weight: bold">Tắm gội dịu nhẹ như bông Johnson's baby cotton touch 500ml</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/dha.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>285.000đ</h2>
-                                        <p style="font-weight: bold">Viên uống bổ sung DHA cho bé HealthyCare</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/organic.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>352.000đ</h2>
-                                        <p style="font-weight: bold">Vitamin D giúp bé tăng chiều cao Brauer Vitamin D Organic</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="huggies">
+              <!--sua bot-->
+              {{#each huggies}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-            </div><!--/category-tab-->
-
-            <div class="category-tab"><!--brand-tab-->
-                <div class="col-sm-12">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#ensure" data-toggle="tab">Ensure</a></li>
-                        <li><a href="#pedisure" data-toggle="tab">Pedisure</a></li>
-                        <li><a href="#huggies" data-toggle="tab">Huggies</a></li>
-                        <li><a href="#bobby" data-toggle="tab">Bobby</a></li>
-                        <li><a href="#johnson" data-toggle="tab">Johnson Baby</a></li>
-                    </ul>
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="bobby">
+              <!--sua bot-->
+              {{#each bobby}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-                <div class="tab-content">
-                    <div class="tab-pane fade active in" id="ensure" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure.jpg" alt="" style="height:225px; width: 225px; margin-bottom: 25px" />
-                                        <h2>212.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Ensure dạng lỏng hương vani 237ML - Lốc 6 chai</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure1.jpg" alt="" style="height:225px; width: 225px; margin-bottom: 25px"/>
-                                        <h2>289.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Ensure Gold Vigor 237ml - Lốc 6 chai</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure2.jpg" alt="" style="height: 210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>729.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Ensure Gold hương Vani 850g</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/ensure1.jpg" alt="" style="height: 200px; width: 200px; margin-bottom: 40px"/>
-                                        <h2>1.156.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 1.250.000đ</p>
-                                        <p style="font-weight: bold">Thùng sữa Ensure Gold Vigor - 237ml - 4 Lốc</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="pedisure" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pediasure.png" alt="" style="height: 200px; width: 200px; margin-bottom: 20px"/>
-                                        <h2>470.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 595.000đ</p>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Abbott Pediasure 650g hương vani (1-10 tuổi)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pedisure1.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px" />
-                                        <h2>984.000đ</h2>
-                                        <p style="font-weight: bold">Thùng thực phẩm dinh dưỡng y học cho trẻ 1-10 tuổi: Pediasure hương vani (110ml) (Lốc 4) (12 lốc)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pedisure2.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>119.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học cho trẻ 1-10 tuổi: Pediasure hương vani 180ml (Lốc 4 hộp)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/pediasure.png" alt="" style="height: 230px; width: 240px; margin-bottom: 20px"/>
-                                        <h2>999.000đ</h2>
-                                        <p style="font-weight: bold">Thực phẩm dinh dưỡng y học Abbott Pediasure 1.6kg hương vani (1-10 tuổi)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="huggies" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/huggies3.jpg" alt=""/>
-                                        <h2>690.000đ</h2>
-                                        <p style="font-weight: bold">Combo 2 gói Bỉm tã quần Huggies Platinum Nature Made size XL 38 miếng (12-18kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/huggies1.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>690.000đ</h2>
-                                        <p style="font-weight: bold">Combo 2 bỉm tã dán Huggies Platinum Nature Made size S 82 miếng (4-8kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/huggies.jpg" alt="" style="height:200px; width: 200px; margin-bottom: 40px"/>
-                                        <h2>355.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 410.000đ</p>
-                                        <p style="font-weight: bold">Bỉm tã dán Huggies Platinum Nature Made size XL 44 miếng (12-17kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/huggies2.jpg" alt=""/>
-                                        <h2>355.000đ</h2>
-                                        <p style="font-weight: bold">Bỉm tã dán Huggies Platinum Nature Made size M 64 miếng (6-11kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="bobby" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/bobby.jpg" alt="" style="height:190px; width: 190px; margin-bottom: 40px"/>
-                                        <h2>255.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 270.000đ</p>
-                                        <p style="font-weight: bold">Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="/product-details" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/bobby1.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>124.000đ</h2>
-                                        <p style="font-weight: bold">Miếng lót Bobby size Newborn 1 108 miếng (dưới 5kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/bobby2.jpg" alt=""/>
-                                        <h2>164.000đ</h2>
-                                        <p style="font-weight: bold">Tã dán Bobby siêu thấm - khô thoáng (Sơ sinh, dưới 5kg, 70 miếng)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/bobby3.jpg" alt="" style="height:210px; width: 210px; margin-bottom: 40px"/>
-                                        <h2>194.000đ</h2>
-                                        <p style="font-weight: bold">Bỉm tã quần Bobby size XXL 30 miếng (trên 16kg)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-pane fade" id="johnson" >
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/johnson1.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>82.000đ</h2>
-                                        <p style="font-weight: bold">Phấn thơm hương hoa Johnson Baby (500gr)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/johnson.jpg" alt="" style="height: 210px; width: 210px; margin-bottom: 25px"/>
-                                        <h2>132.000đ</h2>
-                                        <p style="color: #ee3e5d!important">Giá trước khuyến mãi: 140.000đ</p>
-                                        <p style="font-weight: bold">Tắm gội dịu nhẹ như bông Johnson's baby cotton touch 500ml</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/johnson2.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>285.000đ</h2>
-                                        <p style="font-weight: bold">Viên uống bổ sung DHA cho bé HealthyCare</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center" >
-                                        <img src="/images/home/johnson3.jpg" alt="" style="height: 230px; width: 230px; margin-bottom: 25px"/>
-                                        <h2>59.000đ</h2>
-                                        <p style="font-weight: bold">Kem dưỡng da chứa sữa và tinh chất gạo Johnson baby (Hũ 50gr)</p>
-                                        <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
-                                        <a href="#" class="btn btn-default add-to-cart">Xem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+              {{/each}}
+            </div>
+            <div class="tab-pane fade" id="johnson">
+              <!--sua bot-->
+              {{#each baby}}
+                <div class="product-image-wrapper col-sm-3">
+                  <div class="productinfo text-center">
+                    <img
+                      src="/images/home/pediasure.png"
+                      alt=""
+                      style="height: 200px; width: 200px; margin-bottom: 20px"
+                    />
+                    <h2>{{this.DonGia}}.000 VND</h2>
+                    <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                    <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                    <a href="#" class="btn btn-default add-to-cart">Xem</a>
+                  </div>
                 </div>
-            </div><!--/brand-tab-->
-        </div>
+              {{/each}}
+            </div>
+          </div>
+        </div><!--/brand-tab-->
+        <div class="features_items" id="sale"><!--features_items-->
+          <h2 class="title text-center" style="color:blueviolet">Khuyến mãi</h2>
+          <!--sp khuyen mai-->
+          {{#each khuyenmai}}
+            <div class="product-image-wrapper col-sm-3">
+              <div class="productinfo text-center" style="height: 450px">
+                <img
+                  src="/images/home/pediasure.png"
+                  alt=""
+                  style="height: 250px; width: 250px; margin-bottom: 20px"
+                />
+                <h2>{{this.DonGia}}.000 VND</h2>
+                <p style="font-weight: bold">{{this.TenSanPham}}</p>
+                <a href="#" class="btn btn-default add-to-cart">Chọn mua</a>
+                <a href="#" class="btn btn-default add-to-cart">Xem</a>
+              </div>
+            </div>
+          {{/each}}
+        </div><!--features_items-->
+      </div>
     </div>
-    </div>
+  </div>
 </section>

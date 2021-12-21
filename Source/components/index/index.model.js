@@ -34,33 +34,33 @@ module.exports = function () {
       const ensure = await pool.request().query(sqlstring7);
 
       const sqlstring8 =
-      "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Pedisure'";
+        "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Pedisure'";
       const pedisure = await pool.request().query(sqlstring8);
 
       const sqlstring9 =
-      "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Huggies'";
+        "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Huggies'";
       const huggies = await pool.request().query(sqlstring9);
 
       const sqlstring10 =
-      "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Bobby'";
+        "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Bobby'";
       const bobby = await pool.request().query(sqlstring10);
 
       const sqlstring11 =
-      "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Johnson baby'";
+        "select sanpham.* from sanpham,thuonghieu where sanpham.thuonghieu = thuonghieu.MaThuongHieu and thuonghieu.TenThuongHieu = 'Johnson baby'";
       const baby = await pool.request().query(sqlstring11);
 
       result(false, {
-        khuyenmai:spkm.recordset, 
-        suabot:suabot.recordset, 
-        suatuoi:suatuoi.recordset, 
-        bimsua:bimsua.recordset,
-        andam:andam.recordset,
-        cssk:cssk.recordset,
-        ensure:ensure.recordset,
-        pedisure:pedisure.recordset,
-        huggies:huggies.recordset,
-        bobby:bobby.recordset,
-        baby:baby.recordset
+        khuyenmai: spkm.recordset,
+        suabot: suabot.recordset,
+        suatuoi: suatuoi.recordset,
+        bimsua: bimsua.recordset,
+        andam: andam.recordset,
+        cssk: cssk.recordset,
+        ensure: ensure.recordset,
+        pedisure: pedisure.recordset,
+        huggies: huggies.recordset,
+        bobby: bobby.recordset,
+        baby: baby.recordset,
       });
     } catch {
       result(true, null);
