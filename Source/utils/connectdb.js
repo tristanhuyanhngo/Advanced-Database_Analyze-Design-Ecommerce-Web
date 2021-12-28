@@ -3,7 +3,7 @@ const sql = require("mssql/msnodesqlv8");
 // khoa:  "DESKTOP-I5NJLCP\\WANDER"
 // Thư: "DESKTOP-8PV3Q0P\\SQLEXPRESS"
 const config = {
-  server: "DESKTOP-I5NJLCP\\WANDER",
+  server: "DESKTOP-8PV3Q0P\\SQLEXPRESS",
   user: "sa",
   password: "1",
   database: "ADB1_6_DATH2",

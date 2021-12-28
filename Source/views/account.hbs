@@ -1,24 +1,109 @@
 <section id="form" style="margin-top: -20px">
-    <!--form-->
-    <div class="container" >
-        <div class="row">
-                <div class="signup-form" style="text-align: center">
-                    <!--sign up form-->
-                    <h2>Thông tin tài khoản</h2>
-                    <form>
-                        <input name="name" type="text" value={{user.HoTenKhachHang}} />
-                        <input name="gen" type="text" value={{user.GioiTinhKhachHang}} />
-                        <input name="date" type="text" value={{user.NgaySinhKhachHang}} />
-                        <input name="sonha" type="text" value={{user.SoNha}} />
-                        <input name="duong" type="text" value={{user.TenDuong}} />
-                        <input name="phuongxa" type="text" value={{user.Tinh_ThanhPho}} />
-                        <input name="quanhuyen" type="text" value={{user.Quan_Huyen}} />
-                        <input name="tinh" type="text" value={{user.Phuong_Xa}} />
-                        <input name="sodienthoai" disabled type="phone" value={{user.SDT}} />
-                    </form>
-                </div>
-                <!--/sign up form-->
-            </div>
-        </div>
+  <!--form-->
+  <div class="container">
+    <a
+      href="/cart"
+      style="background: #ee3e80;
+  height: fit-content; width: fit-content;
+  color: #ffffff;
+  display: block;
+  padding: 15px 32px; text-decoration: underline"
+    >Chỉnh sửa thông tin</a>
+    <div class="row col-sm-4">
+      <div class="signup-form" style="padding-right: 15px">
+        <!--sign up form-->
+        <h2>Thông tin tài khoản</h2>
+        <form>
+          <p>Họ tên</p>
+          <input
+            name="name"
+            disabled
+            type="text"
+            value={{user.HoTenKhachHang}}
+          />
+          <p>Giới tính</p>
+          <input
+            name="gen"
+            disabled
+            type="text"
+            value={{user.GioiTinhKhachHang}}
+          />
+          <p>Ngày sinh</p>
+          <input
+            name="date"
+            disabled
+            type="text"
+            value={{user.NgaySinhKhachHang}}
+          />
+          <p>Số nhà</p>
+          <input name="sonha" disabled type="text" value={{user.SoNha}} />
+          <p>Đường</p>
+          <input name="duong" disabled type="text" value={{user.TenDuong}} />
+          <p>Thành phố</p>
+          <input
+            name="thanhpho"
+            disabled
+            type="text"
+            value={{user.Tinh_ThanhPho}}
+          />
+          <p>Quận/Huyện</p>
+          <input
+            name="quanhuyen"
+            disabled
+            type="text"
+            value={{user.Quan_Huyen}}
+          />
+          <p>Phường/Xã</p>
+          <input name="phuong" disabled type="text" value={{user.Phuong_Xa}} />
+          <p>Số điện thoại</p>
+          <input name="sodienthoai" disabled type="phone" value={{user.SDT}} />
+        </form>
+      </div>
+      <!--/sign up form-->
     </div>
+    <div class="row col-sm-4">
+      <div class="signup-form" style="padding-right: 15px">
+        <h2>Thông tin bé</h2>
+        <!--tung be mot-->
+        <h4 style="color: #ff6ea4; font-weight: bold">Mã bé:
+          <span style="font-weight: normal">1</span></h4>
+        <form>
+          <p>Họ tên</p>
+          <input
+            name="name"
+            disabled
+            type="text"
+            value={{user.HoTenKhachHang}}
+          />
+          <p>Giới tính</p>
+          <input
+            name="gen"
+            disabled
+            type="text"
+            value={{user.GioiTinhKhachHang}}
+          />
+          <p>Ngày sinh</p>
+          <input
+            name="date"
+            disabled
+            type="text"
+            value={{user.NgaySinhKhachHang}}
+          />
+        </form>
+      </div>
+    </div>
+    <div class="row col-sm-4">
+      <h2 style="text-align: center">Phiếu giảm giá</h2>
+      <!--tung phieu 1-->
+      <div class="dropdown">
+        <button class="dropbtn">1</button>
+        <div class="dropdown-content">
+          <p>Nội dung: <span style="font-weight: normal">abc</span></p>
+          <p>Ngày bắt đầu: <span style="font-weight: normal">abc</span></p>
+          <p>Ngày kết thúc: <span style="font-weight: normal">abc</span></p>
+          <p>Sản phẩm: <span style="font-weight: normal">abc</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
