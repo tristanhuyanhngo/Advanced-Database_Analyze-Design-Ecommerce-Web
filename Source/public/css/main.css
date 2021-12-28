@@ -63,7 +63,7 @@ a#scrollUp i {
 /*************************
 *******Header CSS******
 **************************/
-.header-middle .container .row {
+.header .container .row {
   background-image: linear-gradient(to right, #ee3e80 0, #ff6ea4 100%);
   padding: 10px 0;
   position: -webkit-sticky;
@@ -108,7 +108,7 @@ a#scrollUp i {
   background-position: 270px;
 }
 
-.header-middle .shop-menu .nav.navbar-nav .btn {
+.header .shop-menu .nav.navbar-nav .btn {
   display: inline-block;
   font-weight: 400;
   font-size: 15px;
@@ -129,7 +129,7 @@ a#scrollUp i {
   font-size: 15px;
 }
 
-.header-middle .shop-menu .nav.navbar-nav .btn-outline-light {
+.header .shop-menu .nav.navbar-nav .btn-outline-light {
   color: #fff;
   background-color: transparent;
   background-image: none;
