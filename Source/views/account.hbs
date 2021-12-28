@@ -12,6 +12,17 @@
     <div class="row col-sm-4">
       <div class="signup-form" style="padding-right: 15px">
         <!--sign up form-->
+
+        <P>{{thongtinkhachang.HoTenKhachHang}}</P>
+        
+         {{#each be}}
+        <P>{{this.TenBe}}</P>
+        {{/each}}
+
+        {{#each phieugiamgia}}
+        <P>{{this.MaPhieu}}</P>
+        {{/each}}
+
         <h2>Thông tin tài khoản</h2>
         <form>
           <p>Họ tên</p>
