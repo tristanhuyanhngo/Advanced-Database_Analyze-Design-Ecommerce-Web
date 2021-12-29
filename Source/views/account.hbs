@@ -10,110 +10,77 @@
   padding: 15px 32px; text-decoration: underline"
     >Chỉnh sửa thông tin</a>
     <div class="row col-sm-4">
+      <h2 style="text-align: center">Phiếu giảm giá</h2>
+      <!--tung phieu 1-->
+      <div class="dropdown" style="padding-right: 15px">
+        {{#each phieugiamgia}}
+          <button class="dropbtn">{{this.MaPhieu}}</button>
+          <div class="dropdown-content">
+            <p>Tên phiếu:
+              <span style="font-weight: normal">{{this.TenPhieu}}</span></p>
+            <!--<p>Nội dung:
+              <span style="font-weight: normal">{{this.NoiDung}}</span></p>-->
+            <p>Phần trăm giảm giá:
+              <span
+                style="font-weight: normal"
+              >{{this.PhanTramGiamGia}}</span></p>
+            <p>Số tiền giảm:
+              <span style="font-weight: normal">{{this.SoTienGiam}}</span></p>
+            <p>Thời gian hiệu lực:
+              <span
+                style="font-weight: normal"
+              >{{this.ThoiGianHieuLuc}}</span></p>
+            <p>Thời gian hết hạn:
+              <span
+                style="font-weight: normal"
+              >{{this.ThoiGianHetHan}}</span></p>
+            <p>Đơn hàng áp dụng:
+              <span style="font-weight: normal">{{this.DonHang}}</span></p>
+            <p>Tình trạng:
+              <span style="font-weight: normal">{{this.TinhTrang}}</span></p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="row col-sm-4">
       <div class="signup-form" style="padding-right: 15px">
         <!--sign up form-->
-
-        <P>{{thongtinkhachang.HoTenKhachHang}}</P>
-        
-         {{#each be}}
-        <P>{{this.TenBe}}</P>
-        {{/each}}
-
-        {{#each phieugiamgia}}
-        <P>{{this.MaPhieu}}</P>
-        {{/each}}
-
         <h2>Thông tin tài khoản</h2>
-        <form>
-          <p>Họ tên</p>
-          <input
-            name="name"
-            disabled
-            type="text"
-            value={{user.HoTenKhachHang}}
-          />
-          <p>Giới tính</p>
-          <input
-            name="gen"
-            disabled
-            type="text"
-            value={{user.GioiTinhKhachHang}}
-          />
-          <p>Ngày sinh</p>
-          <input
-            name="date"
-            disabled
-            type="text"
-            value={{user.NgaySinhKhachHang}}
-          />
-          <p>Số nhà</p>
-          <input name="sonha" disabled type="text" value={{user.SoNha}} />
-          <p>Đường</p>
-          <input name="duong" disabled type="text" value={{user.TenDuong}} />
-          <p>Thành phố</p>
-          <input
-            name="thanhpho"
-            disabled
-            type="text"
-            value={{user.Tinh_ThanhPho}}
-          />
-          <p>Quận/Huyện</p>
-          <input
-            name="quanhuyen"
-            disabled
-            type="text"
-            value={{user.Quan_Huyen}}
-          />
-          <p>Phường/Xã</p>
-          <input name="phuong" disabled type="text" value={{user.Phuong_Xa}} />
-          <p>Số điện thoại</p>
-          <input name="sodienthoai" disabled type="phone" value={{user.SDT}} />
-        </form>
+        <p>Họ tên</p>
+        <p class="in4-content">{{thongtinkhachang.HoTenKhachHang}}</p>
+        <p>Giới tính</p>
+        <p class="in4-content">{{thongtinkhachang.GioiTinhKhachHang}}</p>
+        <p>Ngày sinh</p>
+        <p class="in4-content">{{thongtinkhachang.NgaySinhKhachHang}}</p>
+        <p>Số nhà</p>
+        <p class="in4-content">{{thongtinkhachang.SoNha}}</p>
+        <p>Đường</p>
+        <p class="in4-content">{{thongtinkhachang.TenDuong}}</p>
+        <p>Thành phố</p>
+        <p class="in4-content">{{thongtinkhachang.Tinh_ThanhPho}}</p>
+        <p>Quận/Huyện</p>
+        <p class="in4-content">{{thongtinkhachang.Quan_Huyen}}</p>
+        <p>Phường/Xã</p>
+        <p class="in4-content">{{thongtinkhachang.Phuong_Xa}}</p>
+        <p>Số điện thoại</p>
+        <p class="in4-content">{{thongtinkhachang.SDT}}</p>
       </div>
       <!--/sign up form-->
     </div>
     <div class="row col-sm-4">
-      <div class="signup-form" style="padding-right: 15px">
+      <div class="signup-form">
         <h2>Thông tin bé</h2>
-        <!--tung be mot-->
-        <h4 style="color: #ff6ea4; font-weight: bold">Mã bé:
-          <span style="font-weight: normal">1</span></h4>
-        <form>
+        {{#each be}}
+          <!--tung be mot-->
+          <h4 style="color: #ff6ea4; font-weight: bold">Mã bé:
+            <span style="font-weight: normal">{{this.MaBe}}</span></h4>
           <p>Họ tên</p>
-          <input
-            name="name"
-            disabled
-            type="text"
-            value={{user.HoTenKhachHang}}
-          />
+          <p class="in4-content">{{this.TenBe}}</p>
           <p>Giới tính</p>
-          <input
-            name="gen"
-            disabled
-            type="text"
-            value={{user.GioiTinhKhachHang}}
-          />
+          <p class="in4-content">{{this.GioiTinh}}</p>
           <p>Ngày sinh</p>
-          <input
-            name="date"
-            disabled
-            type="text"
-            value={{user.NgaySinhKhachHang}}
-          />
-        </form>
-      </div>
-    </div>
-    <div class="row col-sm-4">
-      <h2 style="text-align: center">Phiếu giảm giá</h2>
-      <!--tung phieu 1-->
-      <div class="dropdown">
-        <button class="dropbtn">1</button>
-        <div class="dropdown-content">
-          <p>Nội dung: <span style="font-weight: normal">abc</span></p>
-          <p>Ngày bắt đầu: <span style="font-weight: normal">abc</span></p>
-          <p>Ngày kết thúc: <span style="font-weight: normal">abc</span></p>
-          <p>Sản phẩm: <span style="font-weight: normal">abc</span></p>
-        </div>
+          <p class="in4-content">{{this.NgaySinh}}</p>
+        {{/each}}
       </div>
     </div>
   </div>
