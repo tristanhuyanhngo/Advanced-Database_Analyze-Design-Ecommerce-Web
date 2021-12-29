@@ -65,5 +65,5 @@ module.exports = function () {
     } catch {
       result(true, null);
     }
-  };
+  }
 };

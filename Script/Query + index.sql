@@ -32,10 +32,6 @@ and not exists(select * from TinhTrangDonHang T2
 select *
 from donhang where Sieuthi is NULL
 
--- Nhân viên Kiểm tra những đơn hàng của siêu thị 163
-select * from Donhang 
-where sieuthi = 163 
-
 go
 
 ----------------------------------------------index------------------------------------------------------
@@ -63,14 +59,9 @@ create NONCLUSTERED index index_TinhTrang
 on TinhTrangDonHang(TinhTrang)
 INCLUDE ([ThoiGianCapNhap])
 
-create NONCLUSTERED index index_SieuThi
-on Donhang(sieuthi)
-INCLUDE ( VAT, Tongsanpham,TongTien,THoiGianDatHang,ThoiGianNhanHangDuKien,DonViVanChuyen,HinhThucTHanhToan,DiemTichLuy, DiaChiGiaoHang)
-
 --drop index index_LoaiSanPham on sanpham
 --drop index index_ThuongHieu on sanpham
 --drop index index_LoaiSanPham_DonGia on sanpham
 --drop index index_KhachHang on diachigiaohang
 --drop index index_DiaChiGiaoHang on donhang
 --drop index index_TinhTrang on TinhTrangDonHang
---drop index index_SieuThi on Donhang

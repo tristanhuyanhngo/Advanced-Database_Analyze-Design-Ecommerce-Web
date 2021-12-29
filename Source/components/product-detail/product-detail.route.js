@@ -6,4 +6,6 @@ router.get("/", productDetailController.paging);
 
 router.post("/:id", productDetailController.getProduct);
 
+router.post("/add/:id", productDetailController.putProductToCart);
+
 module.exports = router;

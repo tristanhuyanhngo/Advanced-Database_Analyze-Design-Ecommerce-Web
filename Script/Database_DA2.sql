@@ -166,6 +166,7 @@ create table DonHang
 	DiemTichLuy int,
 	DiaChiGiaoHang int not null,
 	SieuThi int,
+	TinhTrang nvarchar(30) CHECK (TinhTrang IN(N'Chờ giao', N'Đã mua', N'Đã huỷ')),
 	CHECK (DonViVanChuyen IN('AhaMove', 'GrabExpress','Viettel')),
 	CHECK (VAT >=0 ),
 	CHECK (HinhThucThanhToan IN('COD', 'ATM','VISA','VNPAY','ZALOPAY', 'MOMO')),

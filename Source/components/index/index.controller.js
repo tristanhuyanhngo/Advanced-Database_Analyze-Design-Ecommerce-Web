@@ -1,5 +1,7 @@
 const Index = require("./index.model");
 const modelIndex = new Index();
+const store = require('store')
+
 exports.paging = (req, res) => {
   modelIndex.page((e, data) => {
     if (!e)
@@ -18,4 +20,5 @@ exports.paging = (req, res) => {
       });
     else res.status(404).json({ errors: "error" });
   });
+
 };

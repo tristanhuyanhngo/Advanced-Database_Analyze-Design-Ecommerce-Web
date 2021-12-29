@@ -3,8 +3,7 @@ const model = new ProductDetail();
 const store = require("store");
 
 exports.paging = (req, res) => {
-  model.getProduct(store.get("id"), (e, data) => {
-    console.log(data);
+  model.getProduct(store.get("idsp"), (e, data) => {
     res.render("product-details", {
       thongtinsanpham: data.thongtinsanpham,
       sanphammuacung: data.sanphammuacung,
@@ -13,6 +12,12 @@ exports.paging = (req, res) => {
 };
 
 exports.getProduct = (req, res) => {
-  store.set("id", req.params.id);
+  store.set("idsp", req.params.id);
   res.redirect("/product-details");
+};
+
+exports.putProductToCart = (req, res) => {
+  model.putProductToCart(store.get("idsp"), store.get("id"), (e, data) => {
+    res.redirect("/");
+  });
 };

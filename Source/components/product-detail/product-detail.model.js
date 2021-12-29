@@ -4,19 +4,44 @@ module.exports = function () {
   this.getProduct = async (id, result) => {
     try {
       const pool = await conn;
-      const sqlstring = "select * from sanpham where masanpham = @varID";
-      const inforProduct = await pool.request().input("varID", sql.Int, id).query(sqlstring)
+      const sqlstring =
+        "select * from sanpham, loaisanpham, thuonghieu where masanpham = @varID " +
+        "and loaisanpham.maloai = sanpham.loaisanpham and sanpham.thuonghieu = thuonghieu.mathuonghieu";
+      const inforProduct = await pool
+        .request()
+        .input("varID", sql.Int, id)
+        .query(sqlstring);
 
-      const sqlstring2 = "select * from SanPhamMuaCung where MaSanPham = @varID";
-      const spmc = await pool.request().input("varID", sql.Int, id).query(sqlstring2)
+      const sqlstring2 =
+        "select * from SanPhamMuaCung where MaSanPham = @varID";
+      const spmc = await pool
+        .request()
+        .input("varID", sql.Int, id)
+        .query(sqlstring2);
 
       result(null, {
-        thongtinsanpham:inforProduct.recordset[0],
-        sanphammuacung:spmc.recordset
+        thongtinsanpham: inforProduct.recordset[0],
+        sanphammuacung: spmc.recordset,
       });
-
     } catch {
       result(true, null);
     }
-  };
+  },
+    this.putProductToCart = async (idsp, idkh, result) => {
+      try {
+        const pool = await conn;
+        const sqlstring =
+          "insert into ChiTietGioHang(MaKhachHang,MaSanPham,SoLuong,DonGia) values (@varIDSP, @varIDKH, 1,1)";
+        return pool
+          .request()
+          .input("varIDSP", sql.Int, idsp)
+          .input("varIDKH", sql.Int, idkh)
+          .query(sqlstring, (e, data) => {
+            if (!e) result(null, "successfully");
+            else result(true, null);
+          });
+      } catch(e) {
+        result(true, "error");
+      }
+    };
 };

@@ -13,27 +13,29 @@
           </tr>
         </thead>
         <tbody style="background-color: white">
-          <tr>
-            <td class="cart_product">
-              <a href="/order-detail" style="font-size: 16px">ABCDE</a>
-            </td>
-            <td class="cart_description">
-              <h4>
-                2017-01-09 09:54:23.630
-              </h4>
-            </td>
-            <td class="cart_quantity">
-              <div class="cart_quantity_button">
-                <p class="cart_quantity_input">5</p>
-              </div>
-            </td>
-            <td class="cart_price">
-              <p>$59</p>
-            </td>
-            <td class="cart_state">
-              <p class="cart_state">Chưa giao</p>
-            </td>
-          </tr>
+          {{#each orders}}
+            <tr>
+              <td class="cart_product">
+                <a href="/order-detail" style="font-size: 16px">{{this.MaDonHang}}</a>
+              </td>
+              <td class="cart_description">
+                <h4>
+                  {{this.ThoiGianDatHang}}
+                </h4>
+              </td>
+              <td class="cart_quantity">
+                <div class="cart_quantity_button">
+                  <p class="cart_quantity_input">{{this.TongSanPham}}</p>
+                </div>
+              </td>
+              <td class="cart_price">
+                <p>{{this.TongTien}}000</p>
+              </td>
+              <td class="cart_state">
+                <p class="cart_state">{{this.TinhTrang}}</p>
+              </td>
+            </tr>
+          {{/each}}
         </tbody>
       </table>
     </div>
