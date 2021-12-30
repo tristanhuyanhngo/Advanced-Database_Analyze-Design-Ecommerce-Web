@@ -6,7 +6,7 @@ module.exports = function () {
       const pool = await conn;
       const sqlstring =
         "select sanpham.masanpham, sanpham.tensanpham, sanpham.DonGia as gia, ChiTietGioHang.soluong,ChiTietGioHang.dongia as tonggia " +
-        "from ChiTietGioHang, sanpham where ChiTietGioHang.makhachhang = 1 and ChiTietGioHang.masanpham = sanpham.masanpham";
+        "from ChiTietGioHang, sanpham where ChiTietGioHang.makhachhang = @varID and ChiTietGioHang.masanpham = sanpham.masanpham";
       return await pool
         .request()
         .input("varID", sql.Int, id)
