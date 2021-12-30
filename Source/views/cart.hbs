@@ -14,41 +14,53 @@
         </thead>
         <tbody style="background-color: white">
           {{#each thongtingiohang}}
-          <tr>
-            <td class="cart_product">
-              <a href=""><img
-                  src="/images/home/bobby.jpg"
-                  alt=""
-                  width="150px"
-                /></a>
-            </td>
-            <td class="cart_description">
-              <h4>
-                <a href="" style="font-weight: bold; font-size: 20px">
-                  {{this.tensanpham}}</a>
-              </h4>
-              <p style="font-size: 10px">Mã sản phẩm: {{this.masanpham}}</p>
-            </td>
-            <td class="cart_price">
-              <p>{{this.gia}}000</p>
-            </td>
-            <td class="cart_quantity">
-              <input
-                required
-                class="cart_quantity_input"
-                type="text"
-                name="quantity"
-                value={{this.soluong}}
-                autocomplete="off"
-                size="2"
-              />
-            </td>
-            <td class="cart_total">
-              <p class="cart_total_price">{{this.tonggia}}000</p>
-            </td>
-          </tr>
+            <tr>
+              <td class="cart_product">
+                <a href=""><img
+                    src="/images/home/bobby.jpg"
+                    alt=""
+                    width="150px"
+                  /></a>
+              </td>
+              <td class="cart_description">
+                <h4>
+                  <a href="" style="font-weight: bold; font-size: 20px">
+                    {{this.tensanpham}}</a>
+                </h4>
+                <p style="font-size: 10px">Mã sản phẩm: {{this.masanpham}}</p>
+              </td>
+              <td class="cart_price">
+                <p>{{this.gia}}000</p>
+              </td>
+              <td class="cart_quantity">
+                <div class="cart_quantity_button">
+                  <a
+                    class="cart_quantity_up"
+                    href=""
+                    style="font-weight: bold, color: #ee3e80"
+                  > + </a>
+                  <input
+                    class="cart_quantity_input"
+                    type="text"
+                    name="quantity"
+                    value={{this.soluong}}
+                    autocomplete="off"
+                    size="2"
+                  />
+                  <a
+                    class="cart_quantity_down"
+                    href=""
+                    style="font-weight: bold, color: #ee3e80"
+                  > - </a>
+                </div>
+              </td>
+              <td class="cart_total">
+                <p class="cart_total_price">{{this.tonggia}}000</p>
+              </td>
+            </tr>
           {{/each}}
         </tbody>
+        <!---->
       </table>
     </div>
   </div>

@@ -104,7 +104,6 @@
 
 .cart_quantity_button a {
   background: #f0f0e9;
-  color: #696763;
   display: inline-block;
   font-size: 16px;
   height: 28px;
@@ -112,6 +111,8 @@
   text-align: center;
   width: 35px;
   float: left;
+  font-weight: bold;
+  color: #ee3e80;
 }
 
 .cart_quantity_input {
