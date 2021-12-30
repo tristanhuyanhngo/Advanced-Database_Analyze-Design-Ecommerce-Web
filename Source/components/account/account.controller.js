@@ -4,6 +4,7 @@ const store = require("store");
 
 exports.paging = (req, res) => {
   accountLogin.page(store.get("id"), (e, data) => {
+    console.log(data)
     if (!e) res.render("account", { 
       thongtinkhachang: data.thongtinkhachang,
       be: data.be,
