@@ -1,7 +1,7 @@
 const { conn, sql } = require("../../utils/connectdb");
 
 module.exports = function () {
-  this.page = async (id, result) => {
+  (this.page = async (id, idpgg, ptgg, tg, result) => {
     try {
       const pool = await conn;
       const sqlstring =
@@ -20,23 +20,70 @@ module.exports = function () {
 
       let VAT = Math.floor(Math.random() * 20);
 
-      let tc = ttsp*(100+VAT)/100 + pvc
+      if (idpgg == null || idpgg == undefined) {
+        ptgg = 0;
+        tg = 0;
+      }
 
-      console.log('ttsp: ', ttsp)
-      console.log('pvc: ',pvc)
-      console.log('VAT: ', VAT)
-      console.log('tc: ', Math.floor(tc))
-      
+      let tc = (((ttsp * (100 + VAT)) / 100 + pvc) * (100 - ptgg)) / 100 - tg;
+
+      let gg = (((ttsp * (100 + VAT)) / 100 + pvc) * ptgg) / 100 + tg;
+
       result(null, {
-        data:data.recordset,
-        tongtiensanpham:ttsp,
-        phivanchuyen:pvc,
-        VAT:VAT,
-        TongCong: Math.floor(tc)
+        data: data.recordset,
+        tongtiensanpham: ttsp,
+        phivanchuyen: pvc,
+        VAT: VAT,
+        TongCong: Math.floor(tc),
+        giamgia: Math.floor(gg),
       });
-
     } catch {
       result(true, null);
     }
-  };
+  }),
+    (this.addCoupons = async (idpgg, idkh, result) => {
+      try {
+        const pool = await conn;
+        const sqlstring =
+          "select * from phieugiamgia where MaPhieu = @varIDPGG and KhachHang = @varIDKH and TinhTrang = N'Chưa xài'";
+
+        return await pool
+          .request()
+          .input("varIDPGG", sql.Int, idpgg)
+          .input("varIDKH", sql.Int, idkh)
+          .query(sqlstring, (e, data) => {
+            if (data.recordset[0] != undefined) result(null, data.recordset[0]);
+            else result(true, null);
+          });
+      } catch {
+        result(true, null);
+      }
+    }),
+    (this.changeCart = async (idsp, sl, idkh, result) => {
+      try {
+        const pool = await conn;
+        if (sl > 0) {
+          const sqlstring =
+            "update ChiTietGioHang set SoLuong = @varSL where MaKhachHang = @varIDKH and MaSanPham = @varIDSP";
+          await pool
+            .request()
+            .input("varIDKH", sql.Int, idkh)
+            .input("varIDSP", sql.Int, idsp)
+            .input("varSL", sql.Int, sl)
+            .query(sqlstring);
+          result(null, null);
+        } else {
+          const sqlstring =
+            "delete ChiTietGioHang where MaKhachHang = @varIDKH and MaSanPham = @varIDSP";
+          await pool
+            .request()
+            .input("varIDKH", sql.Int, idkh)
+            .input("varIDSP", sql.Int, idsp)
+            .query(sqlstring);
+          result(null, null);
+        }
+      } catch {
+        result(true, null);
+      }
+    });
 };
