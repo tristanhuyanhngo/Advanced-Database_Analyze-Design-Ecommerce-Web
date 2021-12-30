@@ -2,52 +2,65 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-2">
-        <p> {{thongtinsanpham.TenSanPham}} </p>
         {{#each sanphammuacung}}
           <p> {{this.TenSanPham}} </p>
         {{/each}}
       </div>
       <div class="col-sm-9 padding-right">
         <div class="product-details">
-          <form method="POST" action="/product-details/add/{{thongtinsanpham.MaSanPham}}">
-          <!--product-details-->
-          <div class="col-sm-5">
-            <div class="view-product">
-              <img src="/images/home/bobby.jpg" alt="" />
+          <form
+            method="POST"
+            action="/product-details/add/{{thongtinsanpham.MaSanPham}}"
+          >
+            <!--product-details-->
+            <div class="col-sm-5">
+              <div class="view-product">
+                <img src="/images/home/bobby.jpg" alt="" />
+              </div>
             </div>
-          </div>
-          <div class="col-sm-7">
-            <div class="product-information">
+            <div class="col-sm-7">
+              <div class="product-information">
+                <!--/product-information-->
+                <h2 style="font-size: 30px; font-weight: bold">
+                  {{thongtinsanpham.TenSanPham}}
+                </h2>
+                <p style="color: #ffaaca !important">MSP:
+                  {{thongtinsanpham.MaSanPham}}</p>
+                <span
+                  style="color: #ee3e80; font-size: 30px; font-weight: bold"
+                >{{thongtinsanpham.DonGia}}.000VND</span>
+                <!--Mo ta-->
+                <p style="font-weight: normal"><b style="color:#3567d7">Mô tả
+                    sản phẩm:
+                  </b>
+                  {{thongtinsanpham.Mota}}</p>
+                <!--Loai-->
+                <p style="font-weight: normal"><b
+                    style="color:#3567d7"
+                  >Loại:</b>
+                  {{thongtinsanpham.TenLoai}}</p>
+                <!--ThuongHieu-->
+                <p style="font-weight: normal"><b style="color:#3567d7">Thương
+                    hiệu:</b>
+                  {{thongtinsanpham.TenThuongHieu}}</p>
+                <!--So Luong con lai-->
+                <p style="font-weight: normal"><b style="color:#3567d7">Số lượng
+                    còn lại:</b>
+                </p>
+                <button
+                  type="submit"
+                  class="btn btn-fefault cart"
+                  style="margin-top: 20px"
+                >
+                  CHỌN MUA
+                </button>
+              </div>
               <!--/product-information-->
-              <h2 style="font-size: 30px; font-weight: bold">
-                Tã dán Bobby siêu thấm - khô thoáng (S, 4-8kg, 80 miếng)
-              </h2>
-              <p style="color: #ffaaca !important">MSP: 1236000000003</p>
-              <span
-                style="color: #ee3e80; font-size: 30px; font-weight: bold"
-              >255.000đ</span>
-              <p style="color: #ee3e5d !important">
-                Giá trước khuyến mãi: 270.000đ
-              </p>
-              <p><b>Loại:</b> Bỉm tã quần</p>
-              <p><b>Thương hiệu:</b> Bobby</p>
-              <p><b>Số lượng còn lại:</b> 13</p>
-              <button
-                type="submit"
-                class="btn btn-fefault cart"
-                style="margin-top: 20px"
-              >
-                CHỌN MUA
-              </button>
             </div>
-            <!--/product-information-->
-          </div>
           </form>
         </div>
         <!--/product-details-->
-
         <!--/category-tab-->
-
         <div class="recommended_items" style="margin-top: -30px">
           <!--recommended_items-->
           <h2
@@ -66,7 +79,6 @@
               <div class="item active">
                 <div class="col-sm-4">
                   <div class="product-image-wrapper">
-
                     <div class="productinfo text-center">
                       <img
                         src="/images/home/bobby1.jpg"
@@ -76,9 +88,6 @@
                       <h2 style="margin-top: -10px">124.000đ</h2>
                       <p style="font-weight: bold">Miếng lót Bobby size Newborn
                         1 108 miếng (dưới 5kg)</p>
-                      <button type="button" class="btn btn-default add-to-cart">
-                        CHỌN MUA
-                      </button>
                       <button type="button" class="btn btn-default add-to-cart">
                         XEM
                       </button>

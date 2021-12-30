@@ -17,7 +17,6 @@
           {{#each ThongTinGioHang}}
             <tr>
               <form method="POST" action="/cart/change/{{this.masanpham}}">
-
                 <td class="cart_product">
                 <a href=""><img
                     src="/images/home/bobby.jpg"
@@ -35,7 +34,6 @@
               <td class="cart_price">
                 <p>{{this.gia}}000</p>
               </td>
-
               <td class="cart_quantity">
                 <div class="cart_quantity_button">
                   <input
@@ -56,14 +54,11 @@
                 <p class="cart_total_price">{{this.tonggia}}000</p>
               </td>
                </form>
-              
-                         
             </tr>
           {{/each}}
         </tbody>
         <!---->
       </table>
-      
     </div>
   </div>
 </section>
@@ -84,7 +79,7 @@
               <input name='id' type="text" />
             </li>
           </ul>
-          <p>{{messages.magiamgia}}</p>
+          <p style="margin-left: 40px; color: red">{{messages.magiamgia}}</p>
           <button class="btn btn-default update" type="submit">Áp dụng</button>
           </form>
         </div>
@@ -118,12 +113,12 @@
         >
           <label for="cash">Hình thức thanh toán:</label>
           <select id="cash" name="cash" style="margin-bottom: 10px">
-            <option value="cod">COD</option>
-            <option value="visa">Visa</option>
-            <option value="momo">Momo</option>
-            <option value="zalo">Zalopay</option>
-            <option value="vnpay">VNPay</option>
-            <option value="atm">ATM</option>
+            <option value="COD">COD</option>
+            <option value="VISA">Visa</option>
+            <option value="MOMO">Momo</option>
+            <option value="ZALO">Zalopay</option>
+            <option value="VNPAY">VNPay</option>
+            <option value="ATM">ATM</option>
           </select>
         </li>
         <li
@@ -132,9 +127,9 @@
         >
           <label for="delivery">Đơn vị vận chuyển:</label>
           <select id="delievery" name="delivery" style="margin-bottom: 10px">
-            <option value="grab">Grab Express</option>
-            <option value="viettel">Viettel</option>
-            <option value="aha">Aha Move</option>
+            <option value="GrabExpress">Grab Express</option>
+            <option value="Viettel">Viettel</option>
+            <option value="AhaMove">Aha Move</option>
           </select>
         </li>
       </ul>
