@@ -31,7 +31,7 @@ module.exports = function () {
       try {
         const pool = await conn;
         const sqlstring =
-          "insert into ChiTietGioHang(MaKhachHang,MaSanPham,SoLuong,DonGia) values (@varIDSP, @varIDKH, 1,1)";
+          "insert into ChiTietGioHang(MaKhachHang,MaSanPham,SoLuong,DonGia) values (@varIDKH,@varIDSP, 1,1)";
         return pool
           .request()
           .input("varIDSP", sql.Int, idsp)
