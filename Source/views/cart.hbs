@@ -32,7 +32,7 @@
                 <p style="font-size: 10px">Mã sản phẩm: {{this.masanpham}}</p>
               </td>
               <td class="cart_price">
-                <p>{{this.gia}}.000VND</p>
+                <p>{{this.gia}}000 VND</p>
               </td>
               <td class="cart_quantity">
                 <div class="cart_quantity_button">
@@ -44,11 +44,14 @@
                     autocomplete="off"
                     size="2"
                   />
-                  <button type="submit">change</button>
+                  <button type="submit" style="background: #1C6DD0;
+  height: fit-content; width: fit-content;
+  color: #ffffff;
+  display: block;">Cập nhật</button>
                 </div>
               </td>
               <td class="cart_total">
-                <p class="cart_total_price">{{this.tonggia}}000</p>
+                <p class="cart_total_price">{{this.tonggia}}000 VND</p>
               </td>
                </form>
             </tr>
@@ -60,7 +63,6 @@
   </div>
 </section>
 <!--/#cart_items-->
-
 <section id="do_action">
   <div class="container">
     <div class="row">
@@ -86,15 +88,15 @@
           <ul>
             <li style="font-weight: bold">
               Tổng tiền sản phẩm
-              <span>{{TongTienSanPham}}.000VND</span>
+              <span>{{TongTienSanPham}}000 VND</span>
             </li>
             <li style="font-weight: bold">VAT <span>{{VAT}}%</span></li>
             <li style="font-weight: bold">
               Phí vận chuyển
-              <span>{{PhiVanChuyen}}.000VND</span>
+              <span>{{PhiVanChuyen}}000 VND</span>
             </li>
-            <li style="font-weight: bold">Giảm giá <span>{{GiamGia}}.000VND</span></li>
-            <li style="font-weight: bold">Tổng cộng <span>{{TongCong}}.000VND</span></li>
+            <li style="font-weight: bold">Giảm giá <span>{{GiamGia}}000 VND</span></li>
+            <li style="font-weight: bold">Tổng cộng <span>{{TongCong}}000 VND</span></li>
           </ul>
         </div>
       </div>
