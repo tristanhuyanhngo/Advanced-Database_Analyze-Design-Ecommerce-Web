@@ -18,7 +18,6 @@ exports.getProduct = (req, res) => {
 
 exports.putProductToCart = (req, res) => {
   model.putProductToCart(store.get("idsp"), store.get("id"), (e, data) => {
-    console.log(data);
     res.redirect("/");
   });
 };
