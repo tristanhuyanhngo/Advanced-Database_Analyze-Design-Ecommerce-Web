@@ -1,1 +1,73 @@
-<p>hello world</p>
+<section id="form" style="margin-top: -20px">
+  <!--form-->
+  <div class="container">
+    <a
+      href="/account"
+      style="background: #ee3e80;
+  height: fit-content; width: fit-content;
+  color: #ffffff;
+  display: block;
+  padding: 15px 32px; text-decoration: underline"
+    >Thông tin cá nhân</a>
+    <div class="row col-sm-4">
+      <div class="signup-form" style="padding-right: 15px">
+        <h2>Thêm bé</h2>
+        <form>
+          <input required name="name" type="text" placeholder="Họ và tên" />
+          <label for="gen">Giới tính:</label>
+          <select required id="gen" name="gen" style="margin-bottom: 10px">
+            <option value="Nữ">Nữ</option>
+            <option value="Nam">Nam</option>
+          </select>
+          <label for="date">Ngày sinh</label>
+          <input required type="date" name="date" id="dateofbirth" />
+          <button type="submit" class="btn btn-default">Thêm</button>
+        </form>
+      </div>
+    </div>
+    <div class="row col-sm-4">
+      <div class="signup-form" style="padding-right: 15px">
+        <!--sign up form-->
+        <h2>Thông tin Khách hàng</h2>
+        <p>Họ tên</p>
+        <p class="in4-content">{{thongtinkhachang.HoTenKhachHang}}</p>
+        <p>Giới tính</p>
+        <p class="in4-content">{{thongtinkhachang.GioiTinhKhachHang}}</p>
+        <p>Ngày sinh</p>
+        <p class="in4-content">{{thongtinkhachang.NgaySinhKhachHang}}</p>
+        <p>Số nhà</p>
+        <p class="in4-content">{{thongtinkhachang.SoNha}}</p>
+        <p>Đường</p>
+        <p class="in4-content">{{thongtinkhachang.TenDuong}}</p>
+        <p>Thành phố</p>
+        <p class="in4-content">{{thongtinkhachang.Tinh_ThanhPho}}</p>
+        <p>Quận/Huyện</p>
+        <p class="in4-content">{{thongtinkhachang.Quan_Huyen}}</p>
+        <p>Phường/Xã</p>
+        <p class="in4-content">{{thongtinkhachang.Phuong_Xa}}</p>
+        <p>Số điện thoại</p>
+        <p class="in4-content">{{thongtinkhachang.SDT}}</p>
+      </div>
+      <!--/sign up form-->
+    </div>
+    <div class="row col-sm-4">
+      <div class="signup-form">
+        <h2>Thông tin bé</h2>
+        {{#each be}}
+          <!--tung be mot-->
+          <p>Mã bé</p>
+          <p class="in4-content">{{this.MaBe}}</p>
+          <p>Họ tên</p>
+          <p class="in4-content">{{this.TenBe}}</p>
+          <p>Giới tính</p>
+          <p class="in4-content">{{this.GioiTinh}}</p>
+          <p>Ngày sinh</p>
+          <p class="in4-content">{{this.NgaySinh}}</p>
+          <br />
+          <br />
+          <br />
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</section>
