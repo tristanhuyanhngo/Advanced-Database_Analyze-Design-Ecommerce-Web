@@ -17,6 +17,7 @@ exports.paging = (req, res) => {
         VAT: data.VAT,
         TongCong: data.TongCong,
         GiamGia: data.giamgia,
+        DiaChi: data.diachi
       });
     }
   );
@@ -52,12 +53,14 @@ exports.changeCart = (req, res) => {
 };
 
 exports.order = (req, res) => {
+  console.log()
   modelCart.order(
     store.get("order"),
     req.body.cash,
     req.body.delivery,
     store.get("idpgg"),
     store.get("id"),
+    req.body.address,
     (e, data) => {
       console.log(data);
       res.redirect("/cart");

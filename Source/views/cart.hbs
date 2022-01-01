@@ -136,13 +136,15 @@
         <div class="heading">
           <h3>Thông tin giao hàng</h3>
         </div>
-		<li
+		    <li
           class="single_field zip-field"
           style="margin-bottom: 10px; margin-top: 20px"
         >
           <label for="address">Địa chỉ giao hàng:</label>
           <select id="address" name="address" style="margin-bottom: 10px">
-            <option>COD</option>
+            {{#each DiaChi}}
+            <option value={{this.MaDiaChi}}>{{this.SoDienThoai}}, {{this.TenDuong}}, {{this.Phuong_Xa}}, {{this.Quan_Huyen}}, {{this.Tinh_ThanhPho}}</option>
+            {{/each}}
           </select>
         </li>
         <li

@@ -29,6 +29,13 @@ module.exports = function () {
 
       let gg = (((ttsp * (100 + VAT)) / 100 + pvc) * ptgg) / 100 + tg;
 
+      const sqlstring2 =
+        "select * from DiaChiGiaoHang where KhachHang = @varID";
+      const dc = await pool
+        .request()
+        .input("varID", sql.Int, id)
+        .query(sqlstring2);
+
       result(null, {
         data: data.recordset,
         tongtiensanpham: ttsp,
@@ -36,6 +43,7 @@ module.exports = function () {
         VAT: VAT,
         TongCong: Math.floor(tc),
         giamgia: Math.floor(gg),
+        diachi: dc.recordset
       });
     } catch {
       result(true, null);
@@ -86,17 +94,18 @@ module.exports = function () {
         result(true, null);
       }
     }),
-    (this.order = async (order, cash, delivery, id, iduser, result) => {
+    (this.order = async (order, cash, delivery, id, iduser, address, result) => {
       try {
         const pool = await conn;
         const sqlstring =
           "insert into donhang(VAT,ThoiGianDatHang,DonViVanChuyen,HinhThucThanhToan,DiaChiGiaoHang, TinhTrang) " +
-          "values(@varVAT, getdate(), @varDVVC, @varHTTT,1, N'Chờ giao')";
+          "values(@varVAT, getdate(), @varDVVC, @varHTTT,@varADDRESS, N'Chờ giao')";
         await pool
           .request()
           .input("varVAT", sql.Int, order.VAT)
           .input("varDVVC", sql.NVarChar, delivery)
           .input("varHTTT", sql.NVarChar, cash)
+          .input("varADDRESS", sql.Int, address)
           .query(sqlstring);
 
         if (id != null && id != undefined) {
