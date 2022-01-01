@@ -15,9 +15,14 @@
         <tbody style="background-color: white">
           {{#each orders}}
             <tr>
-              <td class="cart_product">
-                <a href="/order-detail" style="font-size: 16px">{{this.MaDonHang}}</a>
-              </td>
+              <form action="/order-detail/{{this.MaDonHang}}?_method=POST" method="POST">
+                <td class="cart_product">
+                  <button
+                    type="submit"
+                    style="font-size: 16px;border: none;outline:none;"
+                  >{{this.MaDonHang}}</button>
+                </td>
+              </form>
               <td class="cart_description">
                 <h4>
                   {{this.ThoiGianDatHang}}

@@ -12,9 +12,10 @@
             <td></td>
           </tr>
         </thead>
+
+        {{#each data}}
         <tbody style="background-color: white">
             <tr>
-              <form method="POST">
                 <td class="cart_product">
                   <a href=""><img
                       src="/images/home/bobby.jpg"
@@ -25,51 +26,24 @@
                 <td class="cart_description">
                   <h4>
                     <a href="" style="font-weight: bold; font-size: 20px">
-                      ABC</a>
+                      {{this.TenSanPham}}</a>
                   </h4>
-                  <p style="font-size: 10px">Mã sản phẩm: ABC</p>
+                  <p style="font-size: 10px">Mã sản phẩm: {{this.MaSanPham}}</p>
                 </td>
                 <td class="cart_price">
-                  <p>ABC</p>
+                  <p>{{this.Gia}}000 VND</p>
                 </td>
                 <td class="cart_quantity">
-                  <p class="cart_total_price">ABC</p>
+                  <p class="cart_total_price">{{this.SoLuong}}</p>
                 </td>
                 <td class="cart_total">
-                  <p class="cart_total_price">ABC</p>
+                  <p class="cart_total_price">{{this.DonGia}}000 VND</p>
                 </td>
-              </form>
             </tr>
-          {{/each}}
         </tbody>
+        {{/each}}
         <!---->
       </table>
-    </div>
-  </div>
-</section>
-<!--/#cart_items-->
-<section id="do_action">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="total_area" style="background-color: white">
-          <ul>
-            <li style="font-weight: bold">
-              Tổng tiền sản phẩm
-              <span> ABC000 VND</span>
-            </li>
-            <li style="font-weight: bold">VAT <span>ABC%</span></li>
-            <li style="font-weight: bold">
-              Phí vận chuyển
-              <span>ABC000 VND</span>
-            </li>
-            <li style="font-weight: bold">Giảm giá
-              <span>ABC000 VND</span></li>
-            <li style="font-weight: bold">Tổng cộng
-              <span>ABC000 VND</span></li>
-          </ul>
-        </div>
-      </div>
     </div>
   </div>
 </section>

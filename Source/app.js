@@ -15,7 +15,7 @@ const orderhistoryRouter = require("./components/orderhistory/order.route");
 const productdetailRouter = require("./components/product-detail/product-detail.route");
 const accountRouter = require("./components/account/account.route");
 const editpro5Router = require("./routes/editpro5");
-const orderRouter = require("./routes/order-detail");
+const orderRouter = require("./components/order-detail/order-detail.route");
 
 const app = express();
 
@@ -42,7 +42,7 @@ app.use("/product-details", productdetailRouter);
 app.use("/users", usersRouter);
 app.use("/account", accountRouter);
 app.use("/editpro5", editpro5Router);
-app.use("/orderdetail", orderRouter);
+app.use("/order-detail", orderRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

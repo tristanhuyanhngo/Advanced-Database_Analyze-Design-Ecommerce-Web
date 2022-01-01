@@ -4,10 +4,11 @@ module.exports = function () {
   this.page = async (id, result) => {
     try {
       const pool = await conn;
-      const sqlstring = 
-      "select donhang.* from donhang, diachigiaohang where KhachHang = @varID " +
-      "and donhang.DiaChiGiaoHang = diachigiaohang.MaDiaChi";
-      return await pool.request()
+      const sqlstring =
+        "select donhang.* from donhang, diachigiaohang where KhachHang = @varID " +
+        "and donhang.DiaChiGiaoHang = diachigiaohang.MaDiaChi";
+      return await pool
+        .request()
         .input("varID", sql.Int, id)
         .query(sqlstring, (e, data) => {
           for (let i = 0; i < data.recordset.length; i++) {
