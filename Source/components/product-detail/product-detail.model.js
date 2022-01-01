@@ -1,7 +1,7 @@
 const { conn, sql } = require("../../utils/connectdb");
 
 module.exports = function () {
-  this.getProduct = async (id, result) => {
+  (this.getProduct = async (id, result) => {
     try {
       const pool = await conn;
       const sqlstring =
@@ -13,7 +13,8 @@ module.exports = function () {
         .query(sqlstring);
 
       const sqlstring2 =
-        "select * from SanPhamMuaCung where MaSanPham = @varID";
+        "select SanPhamMuaCung.*, sanpham.TenSanPham as Ten, sanpham.DonGia as Gia from SanPhamMuaCung, sanpham "+ 
+        "where SanPhamMuaCung.MaSanPham = @varID and SanPhamMuaCung.SanPhamMuaCung = sanpham.MaSanPham";
       const spmc = await pool
         .request()
         .input("varID", sql.Int, id)
@@ -26,8 +27,8 @@ module.exports = function () {
     } catch {
       result(true, null);
     }
-  },
-    this.putProductToCart = async (idsp, idkh, result) => {
+  }),
+    (this.putProductToCart = async (idsp, idkh, result) => {
       try {
         const pool = await conn;
         const sqlstring =
@@ -40,8 +41,8 @@ module.exports = function () {
             if (!e) result(null, "successfully");
             else result(true, null);
           });
-      } catch(e) {
+      } catch (e) {
         result(true, "error");
       }
-    };
+    });
 };
