@@ -1,3 +1,4 @@
+
 <section id="cart_items">
   <div class="container">
     <div class="table-responsive cart_info">
@@ -102,6 +103,7 @@
       </div>
     </div>
     <div class="chose_area" style="margin-top: -25px; background-color: white">
+      <form action="/cart/order" method="POST">
       <ul class="user_info">
         <div class="heading">
           <h3>Chọn hình thức giao hàng</h3>
@@ -132,11 +134,13 @@
           </select>
         </li>
       </ul>
-      <a
+      
+      <button
         class="btn btn-default update"
-        href="/checkout"
         style="margin-top: -10px"
-      >Đặt hàng</a>
+        type="submit"
+      >Đặt hàng</button>
+      </form>
     </div>
   </div>
 </section>

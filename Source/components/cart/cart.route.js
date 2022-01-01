@@ -8,4 +8,6 @@ router.post('/coupons', cartController.addCoupons)
 
 router.post('/change/:id',cartController.changeCart)
 
+router.post('/order',cartController.order)
+
 module.exports = router;

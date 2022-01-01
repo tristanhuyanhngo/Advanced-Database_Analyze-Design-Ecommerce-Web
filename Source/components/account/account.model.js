@@ -31,7 +31,7 @@ module.exports = function () {
           }
         }
 
-      const sqlstring3 = "select * from PhieuGiamGia where khachhang = @varID";
+      const sqlstring3 = "select * from PhieuGiamGia where khachhang = @varID and TinhTrang = N'Chưa xài'";
       const pgg = await pool
         .request()
         .input("varID", sql.Int, id)
@@ -42,6 +42,22 @@ module.exports = function () {
         be: be.recordset,
         phieugiamgia: pgg.recordset,
       });
+    } catch {
+      result(true, null);
+    }
+  },
+
+  this.edit = async (id, result) => {
+    try {
+      const pool = await conn;
+
+      const sqlstring1 = "select * from khachhang where MaKhachHAng = @varID";
+      const ttkh = await pool
+        .request()
+        .input("varID", sql.Int, id)
+        .query(sqlstring1);
+
+      result(false, true);
     } catch {
       result(true, null);
     }

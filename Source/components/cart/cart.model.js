@@ -85,5 +85,47 @@ module.exports = function () {
       } catch {
         result(true, null);
       }
+    }),
+    (this.order = async (order, cash, delivery, id, iduser, result) => {
+      try {
+        const pool = await conn;
+        const sqlstring =
+          "insert into donhang(VAT,ThoiGianDatHang,DonViVanChuyen,HinhThucThanhToan,DiaChiGiaoHang, TinhTrang) " +
+          "values(@varVAT, getdate(), @varDVVC, @varHTTT,1, N'Chờ giao')";
+        await pool
+          .request()
+          .input("varVAT", sql.Int, order.VAT)
+          .input("varDVVC", sql.NVarChar, delivery)
+          .input("varHTTT", sql.NVarChar, cash)
+          .query(sqlstring);
+
+        if (id != null && id != undefined) {
+          const sqlstring2 =
+            "update PhieuGiamGia set TinhTrang = N'Đã xài' where MaPhieu = @varID";
+          await pool.request().input("varID", sql.Int, id).query(sqlstring2);
+        }
+
+        const sqlstring3 = "select max(MaDonHang) as MaDonHang from donhang";
+        const ID = await pool.request().query(sqlstring3);
+
+        for (let i = 0; i < order.data.length; i++) {
+          const sqlstring4 =
+            "insert into ChiTietDonHang(MaDonHang,MaSanPham,SoLuong,DonGia) " +
+            "values(@varID1, @varID2,@varSL,0)";
+          await pool
+            .request()
+            .input("varID1", sql.Int, ID.recordset[0].MaDonHang)
+            .input("varID2", sql.Int, order.data[i].masanpham)
+            .input("varSL", sql.Int, order.data[i].soluong)
+            .query(sqlstring4);
+        }
+
+        const sqlstring5 = "delete ChiTietGioHang where MaKhachHang = @varID";
+        await pool.request().input("varID", sql.Int, iduser).query(sqlstring5);
+
+        result(null, "done");
+      } catch {
+        result(true, null);
+      }
     });
 };

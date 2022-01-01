@@ -9,6 +9,7 @@ exports.paging = (req, res) => {
     store.get("phantramgiam"),
     store.get("tiengiam"),
     (e, data) => {
+      store.set("order", data);
       res.render("cart", {
         ThongTinGioHang: data.data,
         TongTienSanPham: data.tongtiensanpham,
@@ -45,6 +46,20 @@ exports.changeCart = (req, res) => {
     req.body.quantity,
     store.get("id"),
     (e, data) => {
+      res.redirect("/cart");
+    }
+  );
+};
+
+exports.order = (req, res) => {
+  modelCart.order(
+    store.get("order"),
+    req.body.cash,
+    req.body.delivery,
+    store.get("idpgg"),
+    store.get("id"),
+    (e, data) => {
+      console.log(data);
       res.redirect("/cart");
     }
   );
