@@ -12,11 +12,6 @@ select * from sanpham, thuonghieu
 where sanpham.thuonghieu = thuonghieu.mathuonghieu 
 and thuonghieu.tenthuonghieu = 'Ensure'
 
--- Khách hàng tìm kiếm các sản phẩm thuộc loại bỉm tả và có giá <500
-select * from sanpham, loaisanpham 
-where sanpham.loaisanpham = loaisanpham.maloai 
-and loaisanpham.tenloai = N'Bỉm tả' and sanpham.dongia <500
-
 -- Khách hàng 1 kiểm tra những đơn hàng đã đặt 
 select * from donhang, diachigiaohang
 where donhang.DiaChiGiaoHang = diachigiaohang.MaDiaChi and KhachHang = 1
@@ -42,10 +37,6 @@ INCLUDE ([TenSanPham],[DonGia],[MoTaSanPham],[ThuongHieu])
 create NONCLUSTERED index index_ThuongHieu
 on sanpham(ThuongHieu)
 INCLUDE ([TenSanPham],[DonGia],[MoTaSanPham],[LoaiSanPham])
-
-create NONCLUSTERED index index_LoaiSanPham_DonGia
-on sanpham(loaisanpham,[DonGia])
-INCLUDE ([TenSanPham],[MoTaSanPham],[ThuongHieu])
 
 create NONCLUSTERED index index_KhachHang
 on diachigiaohang(Khachhang)
