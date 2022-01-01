@@ -1,4 +1,4 @@
-document.querySelector("#show-login").addEventListener("click", function () {
+document.querySelector("#show-pop").addEventListener("click", function () {
   document.querySelector(".popup").classList.add("active");
 });
 document
