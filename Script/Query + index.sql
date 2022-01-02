@@ -1,38 +1,90 @@
 ﻿use ADB1_6_DATH2
 go
 
-------------------------------------------------Query----------------------------------------------------------
--- Khách hàng tìm kiếm các sản phẩm thuộc loại bỉm tả 
-select * from sanpham, loaisanpham 
-where sanpham.loaisanpham = loaisanpham.maloai 
-and loaisanpham.tenloai = N'Bỉm tả' 
-
--- Khách hàng tìm kiếm các sản phẩm thuộc thương hiệu Ensure
-select * from sanpham, thuonghieu 
-where sanpham.thuonghieu = thuonghieu.mathuonghieu 
-and thuonghieu.tenthuonghieu = 'Ensure'
-
--- Khách hàng 1 kiểm tra những đơn hàng đã đặt 
-select * from donhang, diachigiaohang
-where donhang.DiaChiGiaoHang = diachigiaohang.MaDiaChi and KhachHang = 1
-
--- Nhân viên Kiểm tra những đơn hàng đang giao
-select * from TinhTrangDonHang T1
-where T1.TinhTrang = N'Chờ giao'
-and not exists(select * from TinhTrangDonHang T2
-				where T2.TinhTrang = N'Đã mua'
-				or T2.TinhTrang =  N'Đã huỷ')
-
---• Nhân viên Kiểm tra đơn hàng chưa được xử lý
-select *
-from donhang where Sieuthi is NULL
-
-go
-
 ----------------------------------------------index------------------------------------------------------
+create NONCLUSTERED index index_MaKhachHang
+on ChiTietGioHang(MaKhachHang)
+INCLUDE (MaSanPham,SoLuong,DonGia)
+
+create NONCLUSTERED index index_MaPhieuNhapHang
+on ChiTietNhapHang(MaPhieuNhapHang)
+INCLUDE (MaSanPham,SoLuong,DonGia)
+
+create NONCLUSTERED index index_MaPhieuXuatHang
+on ChiTietXuatHang(MaPhieuXuatHang)
+INCLUDE (MaSanPham,SoLuong)
+
+create NONCLUSTERED index index_Kho
+on PhieuNhapHang(Kho)
+INCLUDE (NgayNhapHang,NhaCungCap,TongGia)
+
+create NONCLUSTERED index index_MaNhaCungCap
+on ChiTietCungCap(MaNhaCungCap)
+INCLUDE (MaSanPham,SoLuong)
+
+create NONCLUSTERED index index_MaKho
+on ChiTietKho(MaKho)
+INCLUDE (MaSanPham,SoLuong)
+
+create NONCLUSTERED index index_MaNhanVien
+on NgayDiemDanh(MaNhanVien)
+INCLUDE (NgayDiemDanh)
+
+create NONCLUSTERED index index_NhanSuQuanLy
+on NhanVien(NhanSuQuanLy)
+INCLUDE (TenNhanVien,GioiTinh,SoCMND,DiaChiNhanVien,Luong,username,pass)
+
+create NONCLUSTERED index index_MaHoaDon
+on ChiTietHoaDon(MaHoaDon)
+INCLUDE (SoLuong,MaSanPham,DonGia)
+
+create NONCLUSTERED index index_MaDonHang
+on TinhTrangDonHang(MaDonHang)
+INCLUDE (TinhTrang,ThoiGianCapNhap)
+
+create NONCLUSTERED index index_MaDonHang
+on ChiTietDonHang(MaDonHang)
+INCLUDE (SoLuong,MaSanPham,DonGia)
+
+create NONCLUSTERED index index_MaSieuThi
+on ChiTietSieuThi(MaSieuThi)
+INCLUDE (SoLuong,MaSanPham)
+
+create NONCLUSTERED index index_KhachHang
+on TheVip(KhachHang)
+INCLUDE (LoaiThe,ThoiHan)
+
+create NONCLUSTERED index index_KhachHang
+on ThongBao(KhachHang)
+INCLUDE (TenThongBao,NoiDung,ThoiGianThongBao)
+
+create NONCLUSTERED index index_KhachHang
+on PhieuGiamGia(KhachHang)
+INCLUDE (ThoiGianHieuLuc,ThoiGianHetHan,PhanTramGiamGia, SoTienGiam,NoiDung,TenPhieu,TinhTrang,DonHang)
+
+create NONCLUSTERED index index_SanPham
+on NhanXet(SanPham)
+INCLUDE (ThoiGianNhanXet,NoiDung,NguoiNhanXet)
+
 create NONCLUSTERED index index_LoaiSanPham
 on sanpham(loaisanpham)
 INCLUDE ([TenSanPham],[DonGia],[MoTaSanPham],[ThuongHieu])
+
+create NONCLUSTERED index index_KhachHang
+on Be(KhachHang)
+INCLUDE (TenBe,NgaySinh,GioiTinh)
+
+create NONCLUSTERED index index_MaKhachHang
+on SanPhamYeuThich(MaKhachHang)
+INCLUDE (MaSanPham)
+
+create NONCLUSTERED index index_MaKhachHang
+on SanPhamDaXem(MaKhachHang)
+INCLUDE (MaSanPham)
+
+create NONCLUSTERED index index_MaSanPham
+on SanPhamMuaCung(MaSanPham)
+INCLUDE (SanPhamMuaCung)
 
 create NONCLUSTERED index index_ThuongHieu
 on sanpham(ThuongHieu)
@@ -50,9 +102,3 @@ create NONCLUSTERED index index_TinhTrang
 on TinhTrangDonHang(TinhTrang)
 INCLUDE ([ThoiGianCapNhap])
 
---drop index index_LoaiSanPham on sanpham
---drop index index_ThuongHieu on sanpham
---drop index index_LoaiSanPham_DonGia on sanpham
---drop index index_KhachHang on diachigiaohang
---drop index index_DiaChiGiaoHang on donhang
---drop index index_TinhTrang on TinhTrangDonHang

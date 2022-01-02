@@ -127,6 +127,7 @@ create table TheVip
 	MaTaiKhoan int primary key identity,
 	LoaiThe nvarchar(30),
 	ThoiHan date,
+	khachhang int,
 	Check (LoaiThe in ('Diamond','Gold'))
 )
 
@@ -586,3 +587,8 @@ alter table HoaDon
 add constraint FK_HD_ST
 foreign key (SieuThi)
 references SieuThi(MaSieuThi)
+
+alter table TheVip
+add constraint FK_TV_KH
+foreign key (khachhang)
+references KhachHang(MaKhachHang)

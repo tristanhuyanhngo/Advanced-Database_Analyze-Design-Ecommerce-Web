@@ -51,8 +51,8 @@ CREATE PROCEDURE KHDatDonHang
 	@DiaChiGiaoHang int,
 	@ThoiGianNhanHangDuKien datetime
 as
-	insert into donhang(SoDienThoaiKhachHang,VAT, TongSanPham, TongTien,ThoiGianDatHang,ThoiGianNhanHangDuKien,DonViVanChuyen,HinhThucThanhToan,DiemTichLuy,DiaChiGiaoHang)
-	values (@SDT, 0, 0, 0, getdate(), @ThoiGianNhanHangDuKien, @DonViVanChuyen, @HinhThucThanhToan,@HinhThucThanhToan,0,@DiaChiGiaoHang)
+	insert into donhang(VAT, TongSanPham, TongTien,ThoiGianDatHang,ThoiGianNhanHangDuKien,DonViVanChuyen,HinhThucThanhToan,DiemTichLuy,DiaChiGiaoHang)
+	values (0, 0, 0, getdate(), @ThoiGianNhanHangDuKien, @DonViVanChuyen, @HinhThucThanhToan,0,@DiaChiGiaoHang)
 go
 
 --•	Xem mã giảm giá sỡ hữu
