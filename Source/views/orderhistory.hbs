@@ -15,11 +15,14 @@
         <tbody style="background-color: white">
           {{#each orders}}
             <tr>
-              <form action="/order-detail/{{this.MaDonHang}}?_method=POST" method="POST">
+              <form
+                action="/order-detail/{{this.MaDonHang}}?_method=POST"
+                method="POST"
+              >
                 <td class="cart_product">
                   <button
                     type="submit"
-                    style="font-size: 16px;border: none;outline:none;"
+                    style="font-size: 16px;border: none;outline:none; text-decoration: underline;"
                   >{{this.MaDonHang}}</button>
                 </td>
               </form>
@@ -34,7 +37,7 @@
                 </div>
               </td>
               <td class="cart_price">
-                <p>{{this.TongTien}}000 VND</p>
+                <p>{{this.TongTien}} VND</p>
               </td>
               <td class="cart_state">
                 <p class="cart_state">{{this.TinhTrang}}</p>

@@ -25,7 +25,7 @@
                   {{thongtinsanpham.MaSanPham}}</p>
                 <span
                   style="color: #ee3e80; font-size: 30px; font-weight: bold"
-                >{{thongtinsanpham.DonGia}}.000VND</span>
+                >{{thongtinsanpham.DonGia}} VND</span>
                 <!--Mo ta-->
                 <p style="font-weight: normal"><b style="color:#3567d7">Mô tả
                     sản phẩm:
@@ -41,9 +41,6 @@
                     hiệu:</b>
                   {{thongtinsanpham.TenThuongHieu}}</p>
                 <!--So Luong con lai-->
-                <p style="font-weight: normal"><b style="color:#3567d7">Số lượng
-                    còn lại:</b>
-                </p>
                 <button
                   class="btn btn-fefault cart"
                   style="margin-top: 20px"
@@ -53,6 +50,12 @@
                 </button>
               </div>
               <!--/product-information-->
+            </div>
+            <div class="popup">
+              <div class="close-btn">&times;</div>
+              <div class="form">
+                <p>Sản phẩm được thêm vào giỏ hàng!</p>
+              </div>
             </div>
           </form>
         </div>
@@ -85,7 +88,8 @@
                           style="height:192px; width: 192px; margin-bottom: 40px"
                         />
                         <h2 style="margin-top: -10px">{{this.Gia}}
-                          .000VND</h2>
+                          VND
+                        </h2>
                         <p style="font-weight: bold">{{this.Ten}}</p>
                         <button
                           type="button"
@@ -117,12 +121,6 @@
         </div>
         <!--/recommended_items-->
       </div>
-    </div>
-  </div>
-  <div class="popup">
-    <div class="close-btn">&times;</div>
-    <div class="form">
-      <p>Sản phẩm được thêm vào giỏ hàng!</p>
     </div>
   </div>
 </section>
