@@ -45,6 +45,7 @@
                   class="btn btn-fefault cart"
                   style="margin-top: 20px"
                   id="show-pop"
+                  type="submit"
                 >
                   CHỌN MUA
                 </button>
@@ -62,6 +63,7 @@
         <!--pop up-->
         <!--/product-details-->
         <!--/category-tab-->
+        <!--/recommended_items-->
         <div class="recommended_items" style="margin-top: -30px">
           <!--recommended_items-->
           <h2
@@ -70,56 +72,26 @@
           >
             Sản phẩm thường mua cùng
           </h2>
+          {{#each sanphammuacung}}
+            <div class="product-image-wrapper col-sm-4">
 
-          <div
-            id="recommended-item-carousel"
-            class="carousel slide"
-            data-ride="carousel"
-          >
-            <div class="carousel-inner">
-              <div class="item active">
-                <div class="col-sm-4">
-                  <div class="product-image-wrapper">
-                    {{#each sanphammuacung}}
-                      <div class="productinfo text-center">
-                        <img
-                          src="/images/home/bobby1.jpg"
-                          alt=""
-                          style="height:192px; width: 192px; margin-bottom: 40px"
-                        />
-                        <h2 style="margin-top: -10px">{{this.Gia}}
-                          VND
-                        </h2>
-                        <p style="font-weight: bold">{{this.Ten}}</p>
-                        <button
-                          type="button"
-                          class="btn btn-default add-to-cart"
-                        >
-                          XEM
-                        </button>
-                      </div>
-                    {{/each}}
-                  </div>
-                </div>
+              <div class="productinfo text-center">
+                <img
+                  src="/images/home/bobby1.jpg"
+                  alt=""
+                  style="height:192px; width: 192px; margin-bottom: 40px"
+                />
+                <h2 style="margin-top: -10px; color: #fe980f">{{this.Gia}}
+                  VND
+                </h2>
+                <p style="font-weight: bold">{{this.Ten}}</p>
+                <button type="button" class="btn btn-default add-to-cart">
+                  XEM
+                </button>
               </div>
             </div>
-            <a
-              class="left recommended-item-control"
-              href="#recommended-item-carousel"
-              data-slide="prev"
-            >
-              <i class="fa fa-angle-left"></i>
-            </a>
-            <a
-              class="right recommended-item-control"
-              href="#recommended-item-carousel"
-              data-slide="next"
-            >
-              <i class="fa fa-angle-right"></i>
-            </a>
-          </div>
+          {{/each}}
         </div>
-        <!--/recommended_items-->
       </div>
     </div>
   </div>
